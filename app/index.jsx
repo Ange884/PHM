@@ -2,7 +2,9 @@ import WelcomeScreen from "../onboarding/welcome.jsx";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import OnboardingScreen from "../onboarding/onboarding.jsx"
+import OnboardingScreen from "../onboarding/onboarding.jsx";
+import OnboardingScreen2 from "../onboarding/board2.jsx";
+
 const Stack = createNativeStackNavigator();
 
 export default function HomeScreen() {
@@ -11,6 +13,7 @@ export default function HomeScreen() {
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
         <Stack.Screen name="/" component={WelcomeScreen} />
         <Stack.Screen name="onboarding1" component={OnboardingScreen} />
+        <Stack.Screen name="onboarding2" component={OnboardingScreen2} />
       </Stack.Navigator>
   );
 }
