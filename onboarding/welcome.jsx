@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ImageBackground, Image, Dimensions, TouchableOp
 import { useFonts, Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato";
 const { width, height } = Dimensions.get('window');
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({navigation}) {
        let [fontsLoaded] = useFonts({
     Lato_400Regular,
     Lato_700Bold,
@@ -25,7 +25,9 @@ export default function WelcomeScreen() {
                 <Text style={styles.title}>Welcome to PHM App</Text>
                 <Text style={styles.subtitle}>Grow your daily Scripture through prayer and fellowship</Text>
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                   onPress={()=>navigation.navigate("onboarding1")}
+                 >
                     <Text style={styles.buttonText}>Join now!</Text>
                 </TouchableOpacity>
 
