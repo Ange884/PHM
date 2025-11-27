@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useFonts, Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 
-export default function OnboardingScreen2() {
+export default function OnboardingScreen3() {
     const [options, setOptions] = useState({
       newToBible: false,
       reconnecting: false,
@@ -30,7 +30,7 @@ export default function OnboardingScreen2() {
       <View style={styles.ProgressView}>
         <View style={[styles.progressbar, styles.progressbarActive]} />
         <View style={[styles.progressbar, styles.progressbarActive]} />
-        <View style={styles.progressbar} />
+        <View style={[styles.progressbar, styles.progressbarActive]} />
       </View>
 
       {/* Question */}
