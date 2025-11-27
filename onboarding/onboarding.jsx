@@ -2,7 +2,7 @@ import React from "react";
 import { useFonts, Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-export default function OnboardingScreen() {
+export default function OnboardingScreen({navigation}) {
   let [fontsLoaded] = useFonts({
     Lato_400Regular,
     Lato_700Bold,
@@ -58,7 +58,7 @@ export default function OnboardingScreen() {
           <Text style={styles.skipText}>Skip</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.nextButton}>
+        <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate("onboarding2")}>
           <Text style={styles.nextButtonText}>continue</Text>
         </TouchableOpacity>
       </View>

@@ -3,6 +3,18 @@ import { useFonts, Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 
 export default function OnboardingScreen2() {
+    const [options, setOptions] = useState({
+      newToBible: false,
+      reconnecting: false,
+      deepeningWalk: false,
+      encouragement: false,
+      yetToKnow: false,
+    });
+    
+    // Toggle function
+    const toggleOption = (key) => {
+      setOptions((prev) => ({ ...prev, [key]: !prev[key] }));
+    };
   let [fontsLoaded] = useFonts({
     Lato_400Regular,
     Lato_700Bold,
@@ -11,18 +23,6 @@ export default function OnboardingScreen2() {
   if (!fontsLoaded) return <></>;
 
   // State for each checkbox
-  const [options, setOptions] = useState({
-    newToBible: false,
-    reconnecting: false,
-    deepeningWalk: false,
-    encouragement: false,
-    yetToKnow: false,
-  });
-
-  // Toggle function
-  const toggleOption = (key) => {
-    setOptions((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ flexGrow: 1, justifyContent: "space-between" }}>
