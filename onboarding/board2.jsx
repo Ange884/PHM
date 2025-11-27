@@ -99,18 +99,20 @@ const styles = StyleSheet.create({
   },
   ProgressView: {
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-between",
     marginVertical: 20,
+    width: "100%",        // adjust as needed
   },
   progressbar: {
-    height: 5,
+    flex:1,
     width: 60,
+    height: 5,
     backgroundColor: "#eee",
     marginHorizontal: 5,
-    borderRadius: 5,
+    borderRadius: 10,
   },
   progressbarActive: {
-    backgroundColor: "#6C63FF",
+    backgroundColor: "#8C4227",
   },
   titleText: {
     fontFamily: "Lato_700Bold",
@@ -126,12 +128,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 10,
+    marginLeft:18,
   },
   checkbox: {
     width: 28,
     height: 28,
     borderWidth: 2,
-    borderColor: "#6C63FF",
+    borderColor: "#f5a88cff",
     borderRadius: 6,
     justifyContent: "center",
     alignItems: "center",
@@ -139,7 +142,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   checkboxChecked: {
-    backgroundColor: "#6C63FF",
+    backgroundColor: "#8C4227",
   },
   checkmark: {
     color: "#fff",
@@ -147,28 +150,28 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   label: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "Lato_400Regular",
     color: "#333",
   },
   skipandNextButtons: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 30,
+    marginBottom: 15,
   },
   skipText: {
     fontSize: 16,
-    color: "#999",
+    color: "#000",
   },
   nextButton: {
-    backgroundColor: "#6C63FF",
-    paddingVertical: 10,
+    backgroundColor: "#8C4227",
+    paddingVertical: 15,
     paddingHorizontal: 25,
     borderRadius: 8,
   },
   nextButtonText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 17,
     fontFamily: "Lato_700Bold",
   },
 });
