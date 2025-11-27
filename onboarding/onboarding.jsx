@@ -122,7 +122,7 @@ progressbarActive: {
     borderColor: "#f1f1f1ff",
   },
   optionText: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "Lato_400Regular",
     color: "#333",
   },
