@@ -13,7 +13,14 @@ export default function OnboardingScreen() {
   }
 
   return (
+    <>
     <View style={styles.container}>
+        <View style={styles.ProgressView}>
+            <View style={[styles.progressbar, styles.progressbarActive]}></View>
+            <View style={styles.progressbar}></View>
+            <View style={styles.progressbar}></View>
+        </View>
+
       <Text style={styles.titleText}>
         What are you seeking in your Faith journey?
       </Text>
@@ -44,6 +51,7 @@ export default function OnboardingScreen() {
         </Text>
       </TouchableOpacity>
 
+    </View>
       {/* Skip + Next */}
       <View style={styles.skipandNextButtons}>
         <TouchableOpacity>
@@ -51,10 +59,10 @@ export default function OnboardingScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.nextButton}>
-          <Text style={styles.nextButtonText}>Next</Text>
+          <Text style={styles.nextButtonText}>continue</Text>
         </TouchableOpacity>
       </View>
-    </View>
+      </>
   );
 }
 
@@ -63,9 +71,31 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: "#fff", // classic light background
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
   },
+
+  ProgressView: {
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+  width: "100%",        // adjust as needed
+  height: 5,
+  alignSelf: "center",
+  marginVertical: 20,
+},
+
+progressbar: {
+  flex: 1,
+  height: 4,
+  backgroundColor: "#D9D9D9",  // inactive color
+  marginHorizontal: 4,
+  borderRadius: 10,
+},
+progressbarActive: {
+  backgroundColor: "#8C4227",   // your active color
+}
+,
   titleText: {
     fontSize: 22,
     fontWeight: "700",
@@ -89,12 +119,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#ccc",
-    shadowColor: "#000",
-    shadowOpacity: 0.05,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    elevation: 2, // subtle shadow for Android
+    borderColor: "#f1f1f1ff",
   },
   optionText: {
     fontSize: 16,
@@ -108,30 +133,31 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "#ccc",
-    shadowColor: "#000",
-    shadowOpacity: 0.05,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    elevation: 2,
+    borderColor: "#f1f1f1ff",
     marginBottom: 25,
   },
   skipandNextButtons: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
-    bottom: 10,
-    textAlignVertical: "center",
-  },
+  position: "absolute",
+  bottom: 20,
+  left: 0,
+  right: 0,
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+  paddingHorizontal: 20,
+  width: "100%",
+},
+
   skipText: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: "Lato_400Regular",
-    color: "#888",
+    color: "#000",
+    marginLeft: 10,
   },
   nextButton: {
-    backgroundColor: "#007AFF", // classic blue button
-    paddingVertical: 15,
-    paddingHorizontal: 30,
+    backgroundColor: "#8C4227", // classic blue button
+    paddingVertical: 20,
+    paddingHorizontal: 50,
     borderRadius: 12,
   },
   nextButtonText: {
