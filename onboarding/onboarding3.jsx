@@ -169,6 +169,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     borderRadius: 8,
   },
+  
   nextButtonText: {
     color: "#fff",
     fontSize: 17,

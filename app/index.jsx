@@ -3,7 +3,7 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import OnboardingScreen from "../onboarding/onboarding.jsx";
-import OnboardingScreen2 from "../onboarding/board2.jsx";
+import OnboardingScreen2 from "../onboarding/onboarding2.jsx";
 
 const Stack = createNativeStackNavigator();
 
