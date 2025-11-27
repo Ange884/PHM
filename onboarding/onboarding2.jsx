@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useFonts, Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 
-export default function OnboardingScreen2({navigate}) {
+export default function OnboardingScreen3({navigation}) {
     const [options, setOptions] = useState({
       newToBible: false,
       reconnecting: false,
@@ -30,41 +30,41 @@ export default function OnboardingScreen2({navigate}) {
       <View style={styles.ProgressView}>
         <View style={[styles.progressbar, styles.progressbarActive]} />
         <View style={[styles.progressbar, styles.progressbarActive]} />
-        <View style={styles.progressbar} />
+        <View style={[styles.progressbar]} />
       </View>
 
       {/* Question */}
       <Text style={styles.titleText}>
-        Create a free account to keep your journey going-forever.
+        Are you new to the Bible or walking with God for years?
       </Text>
 
       {/* Options */}
       <View style={styles.optionsGrid}>
         <Option
-          label="Access offline Bibles-never miss God's word"
+          label="I'm new and just starting out"
           checked={options.newToBible}
           onPress={() => toggleOption("newToBible")}
         />
         <Option
-          label="Join Devotin plans -Walk your journey with Others"
+          label="I want to reconnect with God"
           checked={options.reconnecting}
           onPress={() => toggleOption("reconnecting")}
         />
         <Option
-          label="Save notes and Reflections -Capture what God teaches you"
+          label="I'm deepening my daily walk"
           checked={options.deepeningWalk}
           onPress={() => toggleOption("deepeningWalk")}
         />
         <Option
-          label="Connect with friends in Faith -Grow together"
+          label="I'm here for encouragement"
           checked={options.encouragement}
           onPress={() => toggleOption("encouragement")}
         />
-        {/* <Option
+        <Option
           label="I'm yet to know"
           checked={options.yetToKnow}
           onPress={() => toggleOption("yetToKnow")}
-        /> */}
+        />
       </View>
 
       {/* Buttons */}
@@ -74,7 +74,7 @@ export default function OnboardingScreen2({navigate}) {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.nextButton} 
-         onPress={()=> navigation.navigate("onboarding3")}
+          onPress={() => navigation.navigate("onboarding3")}
         >
           <Text style={styles.nextButtonText}>Continue</Text>
         </TouchableOpacity>
@@ -136,15 +136,15 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
     borderWidth: 2,
-    borderColor: "#319F43",
-    borderRadius: 30,
+    borderColor: "#f5a88cff",
+    borderRadius: 6,
     justifyContent: "center",
     alignItems: "center",
     marginRight: 15,
     backgroundColor: "#fff",
   },
   checkboxChecked: {
-    backgroundColor: "#319F43",
+    backgroundColor: "#8C4227",
   },
   checkmark: {
     color: "#fff",
@@ -162,8 +162,11 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   skipText: {
-    fontSize: 16,
+    fontSize: 18,
     color: "#000",
+    marginBottom:0,
+    marginTop:15,
+    fontFamily: "Lato_700Bold",
   },
   nextButton: {
     backgroundColor: "#8C4227",
@@ -178,3 +181,4 @@ const styles = StyleSheet.create({
     fontFamily: "Lato_700Bold",
   },
 });
+
