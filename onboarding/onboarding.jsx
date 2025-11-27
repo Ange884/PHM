@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#f9f9f9", // classic light background
+    backgroundColor: "#fff", // classic light background
     justifyContent: "center",
     alignItems: "center",
   },
@@ -79,12 +79,12 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "space-between",
     width: "100%",
-    marginBottom: 15,
+    marginBottom: 5,
   },
   optionButton: {
     width: "48%",
-    paddingVertical: 20,
-    backgroundColor: "#fff",
+    paddingVertical: 30,
+    backgroundColor: "#EBEBEB",
     borderRadius: 12,
     marginBottom: 15,
     alignItems: "center",
@@ -103,8 +103,8 @@ const styles = StyleSheet.create({
   },
   fullWidthOption: {
     width: "100%",
-    paddingVertical: 20,
-    backgroundColor: "#fff",
+    paddingVertical: 30,
+    backgroundColor: "#EBEBEB",
     borderRadius: 12,
     alignItems: "center",
     borderWidth: 1,
@@ -120,6 +120,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     width: "100%",
+    bottom: 10,
+    textAlignVertical: "center",
   },
   skipText: {
     fontSize: 16,
