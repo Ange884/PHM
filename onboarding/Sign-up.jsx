@@ -19,25 +19,32 @@ export default function SignUpScreen({ navigate }) {
         <Text style={styles.titleText}>Sign Up</Text>
         <Text style={styles.subtitleText}>Create an account! Please enter your details</Text>
 
-        {/* Inputs */}
+        {/* Inputs with labels */}
+        <Text style={styles.label}>First Name</Text>
         <TextInput 
-          placeholder="First Name"
+          placeholder="Enter your First Name"
           style={styles.input}
           placeholderTextColor="#353434ff"
         />
+
+        <Text style={styles.label}>Last Name</Text>
         <TextInput 
-          placeholder="Last Name"
+          placeholder="Enter your Last Name"
           style={styles.input}
           placeholderTextColor="#353434ff"
         />
+
+        <Text style={styles.label}>Email</Text>
         <TextInput 
-          placeholder="Email"
+          placeholder="Enter your Email"
           style={styles.input}
           keyboardType="email-address"
           placeholderTextColor="#353434ff"
         />
+
+        <Text style={styles.label}>Password</Text>
         <TextInput 
-          placeholder="Password"
+          placeholder="Enter your Password"
           style={styles.input}
           secureTextEntry
           placeholderTextColor="#353434ff"
@@ -48,8 +55,6 @@ export default function SignUpScreen({ navigate }) {
           <Text style={styles.createBtnText}>Create Account</Text>
         </TouchableOpacity>
 
-        {/* Divider */}
-        <Text style={styles.orText}>Or continue with</Text>
 
         {/* Social Buttons */}
         <View style={styles.socialContainer}>
@@ -91,28 +96,40 @@ const styles = StyleSheet.create({
 
   titleText: {
     fontFamily: "Lato_700Bold",
-    fontSize: 28,
+    fontSize: 26,       // slightly smaller than 28, still readable
     color: "#8C4227",
-    textAlign: "center",
+    textAlign: "left",
+    alignSelf: "flex-start",
+    marginBottom: 5,
   },
 
   subtitleText: {
     fontFamily: "Lato_400Regular",
-    fontSize: 14,
+    fontSize: 17,       // minimal 17
     color: "#555",
-    textAlign: "center",
-    marginTop: 5,
-    marginBottom: 25,
+    textAlign: "left",
+    alignSelf: "flex-start",
+    marginBottom: 20,
+  },
+
+  label: {
+    fontSize: 17,
+    fontFamily: "Lato_700Bold",
+    color: "#333",
+    alignSelf: "flex-start",
+    marginBottom: 5,
+    marginLeft: 5,
   },
 
   input: {
     width: "100%",
     backgroundColor: "#fff",
-    padding: 20,
+    paddingVertical: 15,
+    paddingHorizontal: 15,
     borderRadius: 10,
     marginBottom: 15,
     fontFamily: "Lato_400Regular",
-    fontSize: 18,
+    fontSize: 17,       // uniform font size
     color: "#000",
 
     // Shadow
@@ -127,7 +144,7 @@ const styles = StyleSheet.create({
   createBtn: {
     backgroundColor: "#8C4227",
     width: "100%",
-    paddingVertical: 15,
+    paddingVertical: 17,
     borderRadius: 10,
     alignItems: "center",
     marginTop: 10,
@@ -150,12 +167,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontFamily: "Lato_400Regular",
     color: "#888",
-    fontSize: 13,
+    fontSize: 17,
   },
 
   socialContainer: {
     width: "100%",
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "space-between",
   },
 
@@ -163,11 +180,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    width: "48%",
-    paddingVertical: 12,
+    width: "100%",
+    paddingVertical: 15,
     backgroundColor: "#f4f4f4",
     borderRadius: 10,
-
+    borderColor: "#a5a2a2ff",
+    borderWidth:1,
+    marginTop: 12,
     shadowColor: "#000",
     shadowOpacity: 0.05,
     shadowRadius: 3,
@@ -177,12 +196,12 @@ const styles = StyleSheet.create({
   socialText: {
     marginLeft: 10,
     fontFamily: "Lato_700Bold",
-    fontSize: 14,
+    fontSize: 17,
     color: "#333",
   },
 
   accountText: {
-    fontSize: 14,
+    fontSize: 17,
     color: "#888",
     textAlign: "center",
     marginTop: 25,
