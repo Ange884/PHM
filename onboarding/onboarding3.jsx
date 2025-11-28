@@ -84,7 +84,7 @@ export default function OnboardingScreen2({navigate}) {
     style={styles.CreateAccountButtonInner}
     onPress={() => navigate("OnboardingScreen4")}
   >
-    <Text style={styles.CreateAccountButtonText}>Create Account</Text>
+    <Text style={styles.CreateAccountButtonText}>Create a free Account</Text>
   </TouchableOpacity>
 </View>
   {/*Continue without signing In button! */}
@@ -93,17 +93,14 @@ export default function OnboardingScreen2({navigate}) {
     style={styles.ContinueButtonInner}
     onPress={() => navigate("OnboardingScreen4")}
   >
-    <Text style={styles.ContinueButtonText}>Create Account</Text>
+    <Text style={styles.ContinueButtonText}>Continue Without Signing In</Text>
   </TouchableOpacity>
 </View>
 
 <Text style={styles.accountText}>
   Already have an account?
-  <Text style={styles.highlight}> Log in</Text>
+  <Text style={styles.highlight}> Sign in</Text>
 </Text>
-
-
-
 
           </View>
 
