@@ -3,7 +3,7 @@ import { useFonts, Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-export default function OnboardingScreen2({navigate}) {
+export default function OnboardingScreen2({navigation}) {
     const [options, setOptions] = useState({
       newToBible: false,
       reconnecting: false,
@@ -82,7 +82,7 @@ export default function OnboardingScreen2({navigate}) {
         <View style={styles.CreateAccountButton}>
   <TouchableOpacity 
     style={styles.CreateAccountButtonInner}
-    onPress={() => navigate("OnboardingScreen4")}
+    onPress={() => navigation.navigate("signup")}
   >
     <Text style={styles.CreateAccountButtonText}>Create a free Account</Text>
   </TouchableOpacity>
@@ -91,7 +91,7 @@ export default function OnboardingScreen2({navigate}) {
 <View style={styles.continueButton}>
   <TouchableOpacity 
     style={styles.ContinueButtonInner}
-    onPress={() => navigate("OnboardingScreen4")}
+    onPress={() => navigation.navigate("login")}
   >
     <Text style={styles.ContinueButtonText}>Continue Without Signing In</Text>
   </TouchableOpacity>
