@@ -1,7 +1,7 @@
-import React from "react";
-import { useFonts, Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, TextInput } from "react-native";
+import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import React from "react";
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function SignUpScreen({ navigate }) {
   let [fontsLoaded] = useFonts({
@@ -24,14 +24,14 @@ export default function SignUpScreen({ navigate }) {
         <TextInput 
           placeholder="Enter your First Name"
           style={styles.input}
-          placeholderTextColor="#353434ff"
+          placeholderTextColor="#7a7878ff"
         />
 
         <Text style={styles.label}>Last Name</Text>
         <TextInput 
           placeholder="Enter your Last Name"
           style={styles.input}
-          placeholderTextColor="#353434ff"
+          placeholderTextColor="#7a7878ff"
         />
 
         <Text style={styles.label}>Email</Text>
@@ -39,7 +39,7 @@ export default function SignUpScreen({ navigate }) {
           placeholder="Enter your Email"
           style={styles.input}
           keyboardType="email-address"
-          placeholderTextColor="#353434ff"
+          placeholderTextColor="#7a7878ff"
         />
 
         <Text style={styles.label}>Password</Text>
@@ -47,9 +47,27 @@ export default function SignUpScreen({ navigate }) {
           placeholder="Enter your Password"
           style={styles.input}
           secureTextEntry
-          placeholderTextColor="#353434ff"
+          placeholderTextColor="#7a7878ff"
         />
 
+    <View style={styles.policyTermsContainer}>
+      {/* Checkbox + Label */}
+      <TouchableOpacity style={styles.checkboxContainer} onPress={onPress}>
+        <View style={[styles.checkbox, checked && styles.checkboxChecked]}>
+          {checked && <Text style={styles.checkmark}>✓</Text>}
+        </View>
+        <Text style={styles.label}>I agree to the terms</Text>
+      </TouchableOpacity>
+
+      {/* Terms and Privacy text */}
+      <Text style={styles.policyTermsText}>
+        By signing up, you agree to our{" "}
+        <Text style={styles.highlight}>Terms of Service</Text> and{" "}
+        <Text style={styles.highlight}>Privacy Policy</Text>.
+      </Text>
+    </View>
+
+    
         {/* Create Account Button */}
         <TouchableOpacity style={styles.createBtn}>
           <Text style={styles.createBtnText}>Create Account</Text>
@@ -61,13 +79,13 @@ export default function SignUpScreen({ navigate }) {
           {/* Google */}
           <TouchableOpacity style={styles.socialBtn}>
             <Ionicons name="logo-google" size={22} color="#EA4335" />
-            <Text style={styles.socialText}>Google</Text>
+            <Text style={styles.socialText}>Sign in with Google</Text>
           </TouchableOpacity>
 
           {/* Apple */}
           <TouchableOpacity style={styles.socialBtn}>
             <Ionicons name="logo-apple" size={22} color="#000" />
-            <Text style={styles.socialText}>Apple</Text>
+            <Text style={styles.socialText}>Sign in with Apple</Text>
           </TouchableOpacity>
         </View>
 
@@ -92,6 +110,8 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     alignItems: "center",
+    marginTop: 40,
+    marginBottom: 40,
   },
 
   titleText: {
@@ -159,7 +179,7 @@ const styles = StyleSheet.create({
   createBtnText: {
     color: "#fff",
     fontFamily: "Lato_700Bold",
-    fontSize: 17,
+    fontSize: 18,
   },
 
   orText: {
@@ -202,14 +222,17 @@ const styles = StyleSheet.create({
 
   accountText: {
     fontSize: 17,
-    color: "#888",
+    color: "#333",
+    letterSpacing: 0.5,
     textAlign: "center",
     marginTop: 25,
-    fontFamily: "Lato_400Regular",
+    fontFamily: "Lato_700Bold",
   },
 
   highlight: {
     color: "#8C4227",
     fontFamily: "Lato_700Bold",
+    fontSize:18,
   },
+  pl
 });

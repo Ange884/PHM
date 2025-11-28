@@ -26,7 +26,7 @@ export default function OnboardingScreen2({navigation}) {
   // State for each checkbox
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={{ flexGrow: 1, justifyContent: "flex-start" }}>
+    <ScrollView style={styles.container} contentContainerStyle={{ flexGrow: 1, justifyContent: "flex-end" }}>
       {/* Progress Bars */}
       <View style={styles.ProgressView}>
         <View style={[styles.progressbar, styles.progressbarActive]} />
@@ -93,7 +93,7 @@ export default function OnboardingScreen2({navigation}) {
     style={styles.ContinueButtonInner}
     onPress={() => navigation.navigate("login")}
   >
-    <Text style={styles.ContinueButtonText}>Continue Without Signing In</Text>
+    <Text style={styles.ContinueButtonText}>Continue without signing in</Text>
   </TouchableOpacity>
 </View>
 
