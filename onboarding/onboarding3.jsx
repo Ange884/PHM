@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useFonts, Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import {Ionicons} from '@expo/vector-icons';
 
 export default function OnboardingScreen2({navigate}) {
     const [options, setOptions] = useState({
@@ -25,7 +26,7 @@ export default function OnboardingScreen2({navigate}) {
   // State for each checkbox
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={{ flexGrow: 1, justifyContent: "space-between" }}>
+    <ScrollView style={styles.container} contentContainerStyle={{ flexGrow: 1, justifyContent: "flex-start" }}>
       {/* Progress Bars */}
       <View style={styles.ProgressView}>
         <View style={[styles.progressbar, styles.progressbarActive]} />
@@ -67,17 +68,6 @@ export default function OnboardingScreen2({navigate}) {
         /> */}
       </View>
 
-      {/* Buttons */}
-      <View style={styles.skipandNextButtons}>
-        <TouchableOpacity>
-          <Text style={styles.skipText}>Skip</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.nextButton} 
-        >
-          <Text style={styles.nextButtonText}>Continue</Text>
-        </TouchableOpacity>
-      </View>
     </ScrollView>
   );
 }
@@ -97,11 +87,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     padding: 20,
+    margin:0,
+    alignContent:"center",
   },
   ProgressView: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginVertical: 20,
+    marginTop: 10,
+    marginBottom: 30,
     width: "100%",        // adjust as needed
   },
   progressbar: {
@@ -119,8 +112,8 @@ const styles = StyleSheet.create({
     fontFamily: "Lato_700Bold",
     fontSize: 20,
     textAlign: "center",
-    marginBottom: 30,
     color: "#333",
+    marginBottom: 30,
   },
   optionsGrid: {
     marginBottom: 30,
