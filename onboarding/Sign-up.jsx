@@ -20,10 +20,23 @@ export default function SignUpScreen({ navigation, checked, onPress}) {
         <Text style={styles.subtitleText}>Create an account! Please enter your details</Text>
 
         {/* Inputs with labels */}
+        <Text style={styles.label}>First Name</Text>
+        <TextInput 
+          placeholder="Enter your First Name"
+          style={styles.input}
+          placeholderTextColor="#7a7878ff"
+        />
+
+        <Text style={styles.label}>Last Name</Text>
+        <TextInput 
+          placeholder="Enter your Last Name"
+          style={styles.input}
+          placeholderTextColor="#7a7878ff"
+        />
 
         <Text style={styles.label}>Email</Text>
         <TextInput 
-          placeholder="Enter your email"
+          placeholder="Enter your Email"
           style={styles.input}
           keyboardType="email-address"
           placeholderTextColor="#7a7878ff"
@@ -31,7 +44,7 @@ export default function SignUpScreen({ navigation, checked, onPress}) {
 
         <Text style={styles.label}>Password</Text>
         <TextInput 
-          placeholder="Enter your password"
+          placeholder="Enter your Password"
           style={styles.input}
           secureTextEntry
           placeholderTextColor="#7a7878ff"
@@ -61,8 +74,8 @@ export default function SignUpScreen({ navigation, checked, onPress}) {
 
         {/* Already have account */}
         <Text style={styles.accountText}>
-          Don't have an account?
-          <Text style={styles.highlight} onPress={()=>navigation.navigate("signup")}>Sign up</Text>
+          Already have an account?
+          <Text style={styles.highlight}>Sign in</Text>
         </Text>
       </View>
     </ScrollView>

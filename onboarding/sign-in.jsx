@@ -20,19 +20,6 @@ export default function SignInScreen({ navigate, checked, onPress}) {
         <Text style={styles.subtitleText}>Create an account! Please enter your details</Text>
 
         {/* Inputs with labels */}
-        <Text style={styles.label}>First Name</Text>
-        <TextInput 
-          placeholder="Enter your First Name"
-          style={styles.input}
-          placeholderTextColor="#7a7878ff"
-        />
-
-        <Text style={styles.label}>Last Name</Text>
-        <TextInput 
-          placeholder="Enter your Last Name"
-          style={styles.input}
-          placeholderTextColor="#7a7878ff"
-        />
 
         <Text style={styles.label}>Email</Text>
         <TextInput 
