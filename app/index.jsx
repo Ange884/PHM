@@ -6,6 +6,7 @@ import OnboardingScreen from "../onboarding/onboarding.jsx";
 import OnboardingScreen2 from "../onboarding/onboarding2.jsx";
 import OnboardingScreen3 from "../onboarding/onboarding3.jsx";
 import SignUpScreen from "../onboarding/Sign-up.jsx"; 
+import SignInScreen from "../onboarding/sign-in.jsx";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ export default function HomeScreen() {
         <Stack.Screen name="onboarding2" component={OnboardingScreen2} />
         <Stack.Screen name="onboarding3" component={OnboardingScreen3} />
         <Stack.Screen name="signup" component={SignUpScreen} />
+        <Stack.Screen name="signin" component={SignInScreen} />
       </Stack.Navigator>
   );
 }

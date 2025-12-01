@@ -3,7 +3,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-export default function SignUpScreen({ navigation, checked, onPress}) {
+export default function SignInScreen({ navigate, checked, onPress}) {
   let [fontsLoaded] = useFonts({
     Lato_400Regular,
     Lato_700Bold,
@@ -16,14 +16,27 @@ export default function SignUpScreen({ navigation, checked, onPress}) {
       <View style={styles.container}>
 
         {/* Title */}
-        <Text style={styles.titleText}>Sign Up</Text>
+        <Text style={styles.titleText}>Sign In</Text>
         <Text style={styles.subtitleText}>Create an account! Please enter your details</Text>
 
         {/* Inputs with labels */}
+        <Text style={styles.label}>First Name</Text>
+        <TextInput 
+          placeholder="Enter your First Name"
+          style={styles.input}
+          placeholderTextColor="#7a7878ff"
+        />
+
+        <Text style={styles.label}>Last Name</Text>
+        <TextInput 
+          placeholder="Enter your Last Name"
+          style={styles.input}
+          placeholderTextColor="#7a7878ff"
+        />
 
         <Text style={styles.label}>Email</Text>
         <TextInput 
-          placeholder="Enter your email"
+          placeholder="Enter your Email"
           style={styles.input}
           keyboardType="email-address"
           placeholderTextColor="#7a7878ff"
@@ -31,15 +44,31 @@ export default function SignUpScreen({ navigation, checked, onPress}) {
 
         <Text style={styles.label}>Password</Text>
         <TextInput 
-          placeholder="Enter your password"
+          placeholder="Enter your Password"
           style={styles.input}
           secureTextEntry
           placeholderTextColor="#7a7878ff"
         />
 
+    <View style={styles.policyTermsContainer}>
+      {/* Checkbox + Label */}
+      <TouchableOpacity style={styles.checkboxContainer} onPress={onPress}>
+        <View style={[styles.checkbox, checked && styles.checkboxChecked]}>
+          {checked && <Text style={styles.checkmark}>✓</Text>}
+        </View>
+      </TouchableOpacity>
+
+      {/* Terms and Privacy text */}
+      <Text style={styles.policyTermsText}>
+        By signing up, you agree to our{" "}
+        <Text style={styles.highlight}>Terms of Service</Text> and{" "}
+        <Text style={styles.highlight}>Privacy Policy</Text>.
+      </Text>
+    </View>
+
 
         {/* Create Account Button */}
-        <TouchableOpacity style={styles.createBtn} onPress={() =>navigation.navigate("signin")}>
+        <TouchableOpacity style={styles.createBtn}>
           <Text style={styles.createBtnText}>Create Account</Text>
         </TouchableOpacity>
 
@@ -61,8 +90,8 @@ export default function SignUpScreen({ navigation, checked, onPress}) {
 
         {/* Already have account */}
         <Text style={styles.accountText}>
-          Don't have an account?
-          <Text style={styles.highlight} onPress={()=>navigation.navigate("signup")}>Sign up</Text>
+          Already have an account?
+          <Text style={styles.highlight}>Sign in</Text>
         </Text>
       </View>
     </ScrollView>
