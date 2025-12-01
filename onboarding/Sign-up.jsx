@@ -3,7 +3,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-export default function SignUpScreen({ navigate }) {
+export default function SignUpScreen({ navigate, checked, onPress}) {
   let [fontsLoaded] = useFonts({
     Lato_400Regular,
     Lato_700Bold,
@@ -56,7 +56,6 @@ export default function SignUpScreen({ navigate }) {
         <View style={[styles.checkbox, checked && styles.checkboxChecked]}>
           {checked && <Text style={styles.checkmark}>✓</Text>}
         </View>
-        <Text style={styles.label}>I agree to the terms</Text>
       </TouchableOpacity>
 
       {/* Terms and Privacy text */}
@@ -67,7 +66,7 @@ export default function SignUpScreen({ navigate }) {
       </Text>
     </View>
 
-    
+
         {/* Create Account Button */}
         <TouchableOpacity style={styles.createBtn}>
           <Text style={styles.createBtnText}>Create Account</Text>
@@ -92,7 +91,7 @@ export default function SignUpScreen({ navigate }) {
         {/* Already have account */}
         <Text style={styles.accountText}>
           Already have an account?
-          <Text style={styles.highlight}> Log in</Text>
+          <Text style={styles.highlight}>Sign in</Text>
         </Text>
       </View>
     </ScrollView>
@@ -234,5 +233,53 @@ const styles = StyleSheet.create({
     fontFamily: "Lato_700Bold",
     fontSize:18,
   },
-  pl
+  policyTermsContainer: {
+  width: "100%",
+  marginTop: 10,
+  marginBottom: 15,
+  flexDirection: "row",
+  alignItems: "flex-start",
+  gap: 10,
+},
+
+checkboxContainer: {
+  flexDirection: "row",
+  alignItems: "center",
+  marginTop: 3,
+},
+
+checkbox: {
+  width: 22,
+  height: 22,
+  borderWidth: 2,
+  borderColor: "#8C4227",
+  borderRadius: 6,
+  justifyContent: "center",
+  alignItems: "center",
+},
+
+checkboxChecked: {
+  backgroundColor: "#8C4227",
+  borderColor: "#8C4227",
+},
+
+checkmark: {
+  color: "#fff",
+  fontSize: 16,
+  fontWeight: "bold",
+},
+
+policyTermsText: {
+  flex: 1,
+  fontSize: 15,
+  fontFamily: "Lato_400Regular",
+  color: "#333",
+  lineHeight: 20,
+},
+
+highlight: {
+  color: "#8C4227",
+  fontFamily: "Lato_700Bold",
+},
+  
 });
