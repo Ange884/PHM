@@ -3,7 +3,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-export default function SignInScreen({ navigate, checked, onPress}) {
+export default function SignInScreen({ navigation, checked, onPress}) {
   let [fontsLoaded] = useFonts({
     Lato_400Regular,
     Lato_700Bold,
@@ -55,7 +55,7 @@ export default function SignInScreen({ navigate, checked, onPress}) {
           </TouchableOpacity>
 
           {/* Apple */}
-          <TouchableOpacity style={styles.socialBtn}>
+          <TouchableOpacity style={styles.socialBtn} >
             <Ionicons name="logo-apple" size={22} color="#000" />
             <Text style={styles.socialText}>Sign in with Apple</Text>
           </TouchableOpacity>
@@ -64,7 +64,7 @@ export default function SignInScreen({ navigate, checked, onPress}) {
         {/* Already have account */}
         <Text style={styles.accountText}>
           Don't have an account?
-          <Text style={styles.highlight}> Sign in</Text>
+          <Text style={styles.highlight} onPress={()=> navigation.navigate("signup")}> Sign up</Text>
         </Text>
       </View>
     </ScrollView>
