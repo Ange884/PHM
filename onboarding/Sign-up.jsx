@@ -50,6 +50,21 @@ export default function SignUpScreen({ navigation, checked, onPress}) {
           placeholderTextColor="#7a7878ff"
         />
 
+          <View style={styles.policyTermsContainer}>
+      {/* Checkbox + Label */}
+      <TouchableOpacity style={styles.checkboxContainer} onPress={onPress}>
+        <View style={[styles.checkbox, checked && styles.checkboxChecked]}>
+          {checked && <Text style={styles.checkmark}>✓</Text>}
+        </View>
+      </TouchableOpacity>
+
+      {/* Terms and Privacy text */}
+      <Text style={styles.policyTermsText}>
+        By signing up, you agree to our{" "}
+        <Text style={styles.highlight}>Terms of Service</Text> and{" "}
+        <Text style={styles.highlight}>Privacy Policy</Text>.
+      </Text>
+    </View>
 
         {/* Create Account Button */}
         <TouchableOpacity style={styles.createBtn} onPress={() =>navigation.navigate("signin")}>
@@ -255,7 +270,7 @@ checkmark: {
 
 policyTermsText: {
   flex: 1,
-  fontSize: 15,
+  fontSize: 16,
   fontFamily: "Lato_400Regular",
   color: "#333",
   lineHeight: 20,

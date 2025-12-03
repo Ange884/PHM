@@ -37,21 +37,7 @@ export default function SignInScreen({ navigate, checked, onPress}) {
           placeholderTextColor="#7a7878ff"
         />
 
-    <View style={styles.policyTermsContainer}>
-      {/* Checkbox + Label */}
-      <TouchableOpacity style={styles.checkboxContainer} onPress={onPress}>
-        <View style={[styles.checkbox, checked && styles.checkboxChecked]}>
-          {checked && <Text style={styles.checkmark}>✓</Text>}
-        </View>
-      </TouchableOpacity>
-
-      {/* Terms and Privacy text */}
-      <Text style={styles.policyTermsText}>
-        By signing up, you agree to our{" "}
-        <Text style={styles.highlight}>Terms of Service</Text> and{" "}
-        <Text style={styles.highlight}>Privacy Policy</Text>.
-      </Text>
-    </View>
+    
 
 
         {/* Create Account Button */}
@@ -77,8 +63,8 @@ export default function SignInScreen({ navigate, checked, onPress}) {
 
         {/* Already have account */}
         <Text style={styles.accountText}>
-          Already have an account?
-          <Text style={styles.highlight}>Sign in</Text>
+          Don't have an account?
+          <Text style={styles.highlight}> Sign in</Text>
         </Text>
       </View>
     </ScrollView>

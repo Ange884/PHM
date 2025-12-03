@@ -102,7 +102,6 @@ const styles = StyleSheet.create({
   ProgressView: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginVertical: 20,
     width: "100%",        // adjust as needed
   },
   progressbar: {
@@ -120,10 +119,10 @@ const styles = StyleSheet.create({
     fontFamily: "Lato_700Bold",
     fontSize: 20,
     textAlign: "center",
-    marginBottom: 30,
     color: "#333",
   },
   optionsGrid: {
+    marginTop:0,
     marginBottom: 30,
   },
   checkboxContainer: {
