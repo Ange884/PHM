@@ -5,12 +5,19 @@ import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 
 import Video from "react-native-video";
 
 export default function HomeScreen(){
-    <ScrollView style={StyleSheet.container}>
+    <ScrollView style={Styles.container}>
          
-         <Text style={StyleSheet.header}>Your Daily Devotion</Text>
+         <Text style={Styles.header}>Your Daily Devotion</Text>
+         <View style={styles.VidContainer}>
+            {/* Right-side Video */}
            <Video 
-           source={}
-           style={StyleSheet.Video}
+           source={{ }}
+           style={Styles.Video}
            />
+            
+            {/* Left side Words */}
+
+         </View>
+
   </ScrollView>
 }
