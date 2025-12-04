@@ -5,33 +5,38 @@ import {Video} from "expo-av";
 
 const { width } = Dimensions.get("window");
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   const BoxContents = [
-    {
-      icon: "chatbubble-outline",
-      title1: "Prayer Regular",
-      title2: "Share your Prayer needs",
-      buttonText: "Submit Request",
-    },
-    {
-      icon: "people-outline",
-      title1: "Devotional",
-      title2: "Daily Devotion Tips",
-      buttonText: "Browse Forums",
-    },
-    {
-      icon: "help-circle-outline",
-      title1: "Bible Study",
-      title2: "Grow in Faith",
-      buttonText: "View FAQs",
-    },
-    {
-      icon: "mail-outline",
-      title1: "Podcast",
-      title2: "Listen to Sermons",
-      buttonText: "Contact Us",
-    },
-  ];
+  {
+    icon: "chatbubble-outline",
+    title1: "Prayer Regular",
+    title2: "Share your Prayer needs",
+    buttonText: "Submit Request",
+    screen: "request", // screen name to navigate to
+  },
+  {
+    icon: "people-outline",
+    title1: "Devotional",
+    title2: "Daily Devotion Tips",
+    buttonText: "Browse Forums",
+    screen: "DevotionalPage",
+  },
+  {
+    icon: "help-circle-outline",
+    title1: "Bible Study",
+    title2: "Grow in Faith",
+    buttonText: "View FAQs",
+    screen: "FAQsPage",
+  },
+  {
+    icon: "mail-outline",
+    title1: "Podcast",
+    title2: "Listen to Sermons",
+    buttonText: "Contact Us",
+    screen: "PodcastPage",
+  },
+];
+
 
   return (
     <ScrollView style={styles.container}>
@@ -61,18 +66,24 @@ export default function HomeScreen() {
       </View>
 
       {/* Feature Boxes Grid */}
-      <View style={styles.featureGrid}>
-        {BoxContents.map((box, index) => (
-          <View key={index} style={styles.featureBox}>
-            <Ionicons name={box.icon} size={30} color="#4D2415" />
-            <Text style={styles.featureTitle}>{box.title1}</Text>
-            <Text style={styles.featureSubtitle}>{box.title2}</Text>
-            <TouchableOpacity style={styles.featureButton}>
-              <Text style={styles.buttonLabel}>{box.buttonText}</Text>
-            </TouchableOpacity>
-          </View>
-        ))}
-      </View>
+  <View style={styles.featureGrid}>
+     {BoxContents.map((box, index) => (
+    <View key={index} style={styles.featureBox}>
+      <Ionicons name={box.icon} size={30} color="#4D2415" />
+      <Text style={styles.featureTitle}>{box.title1}</Text>
+      <Text style={styles.featureSubtitle}>{box.title2}</Text>
+      
+      {/* Button triggers navigation */}
+      <TouchableOpacity
+        style={styles.featureButton}
+        onPress={() => navigation.navigate(box.screen)}
+      >
+        <Text style={styles.buttonLabel}>{box.buttonText}</Text>
+      </TouchableOpacity>
+    </View>
+  ))}
+</View>
+
     </ScrollView>
   );
 }

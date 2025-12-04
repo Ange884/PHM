@@ -93,15 +93,18 @@ const styles = StyleSheet.create({
   inlineButtons: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 20,
+    marginTop: 100,
+    bottom:10,
   },
 
   // Cancel button
   cancelButton: {
     flex: 1,
-    backgroundColor: "#eee",
+    backgroundColor: "#fff",
     paddingVertical: 12,
     borderRadius: 10,
+    borderColor:"#333",
+    borderWidth:1,
     marginRight: 8,
     alignItems: "center",
   },
