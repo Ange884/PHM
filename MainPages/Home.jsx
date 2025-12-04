@@ -1,7 +1,6 @@
-import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, Dimensions } from "react-native";
+import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Video from "react-native-video";
 
 const { width } = Dimensions.get("window");
@@ -39,38 +38,37 @@ export default function HomeScreen() {
       {/* Header */}
       <Text style={styles.header}>Your Daily Devotion</Text>
 
-<View style={styles.upperContents}>
-  {/* Left side video */}
-  <Video
-    source={{ uri: "https://www.w3schools.com/html/mov_bbb.mp4" }}
-    style={styles.video}
-    controls={true}
-    resizeMode="cover"
-  />
+      <View style={styles.devotionSection}>
+        {/* Video */}
+        <Video
+          source={{ uri: "https://www.w3schools.com/html/mov_bbb.mp4" }}
+          style={styles.video}
+          controls={true}
+          resizeMode="cover"
+        />
 
-  {/* Right side text */}
-  <View style={styles.leftSide}>
-    <Text style={styles.prep}>Prepare Your Heart To Meet With God</Text>
-    <Text style={styles.subprep}>By Pastor James Muyango</Text>
-    <View style={styles.TextIconRow}>
-      <Ionicons name="book-outline" size={20} color="#555" />
-      <Text style={styles.iconText}>5 min read</Text>
-      <Ionicons name="headset-outline" size={20} color="#555" style={{ marginLeft: 20 }} />
-      <Text style={styles.iconText}>3 min listen</Text>
-    </View>
-  </View>
-</View>
+        {/* Text Content */}
+        <View style={styles.textContent}>
+          <Text style={styles.mainText}>Prepare Your Heart <br/> To Meet With God</Text>
+          <Text style={styles.subText}>By Pastor James Muyango</Text>
+          <View style={styles.iconRow}>
+            <Ionicons name="book-outline" size={20} color="#555" />
+            <Text style={styles.iconLabel}>5 min read</Text>
+            <Ionicons name="headset-outline" size={20} color="#555" />
+            <Text style={styles.iconLabel}>3 min listen</Text>
+          </View>
+        </View>
+      </View>
 
-
-      {/* Boxes Grid */}
-      <View style={styles.boxGrid}>
+      {/* Feature Boxes Grid */}
+      <View style={styles.featureGrid}>
         {BoxContents.map((box, index) => (
-          <View key={index} style={styles.box}>
+          <View key={index} style={styles.featureBox}>
             <Ionicons name={box.icon} size={30} color="#4D2415" />
-            <Text style={styles.boxTitle}>{box.title1}</Text>
-            <Text style={styles.boxSub}>{box.title2}</Text>
-            <TouchableOpacity style={styles.boxButton}>
-              <Text style={styles.buttonText}>{box.buttonText}</Text>
+            <Text style={styles.featureTitle}>{box.title1}</Text>
+            <Text style={styles.featureSubtitle}>{box.title2}</Text>
+            <TouchableOpacity style={styles.featureButton}>
+              <Text style={styles.buttonLabel}>{box.buttonText}</Text>
             </TouchableOpacity>
           </View>
         ))}
@@ -85,99 +83,105 @@ const styles = StyleSheet.create({
     backgroundColor: "#f9f9f9",
   },
   header: {
-    fontSize: 28,
+    fontSize: 30,
     fontWeight: "700",
     marginBottom: 16,
     color: "#333",
-    fontFamily:"Lato_700Bold",
+    fontFamily: "Lato_700Bold",
+    textAlign: "center",
   },
-  upperContents: {
+  devotionSection: {
     flexDirection: "row",
     marginBottom: 24,
     backgroundColor: "#fff",
     borderRadius: 12,
-    gap:50,
-    justifyContent:"space-between",
+    overflow: "hidden",
+    gap: 50,
   },
-  leftSide: {
-   width:"50%",
-   justifyContent:"flex-end",
-   textAlign:"right",
+  video: {
+    width: "50%",
+    height: 200,
+    backgroundColor: "#000",
   },
-   video: {
-   width:"50%",
-   height: 180,
-   margin:20,
+  textContent: {
+    flex: 1,
+    width:"50%",
+    padding: 16,
+    alignItems: "flex-end",
+    marginLeft:20,
   },
-  prep: {
-    fontSize: 20,
+  mainText: {
+    fontSize: 18,
     fontWeight: "700",
     marginBottom: 8,
     color: "#222",
+    textAlign: "left",
+    lineHeight: 28,
   },
-  subprep: {
-    fontSize: 16,
+  subText: {
+    fontSize: 18,
     color: "#555",
     marginBottom: 12,
+    textAlign: "left",
   },
-  TextIconRow: {
+  iconRow: {
     flexDirection: "row",
+    alignItems: "center",
+    flexWrap: "wrap",
   },
-  iconText: {
+  iconLabel: {
     marginLeft: 6,
-    fontSize: 14,
+    fontSize: 16,
     color: "#555",
+    marginRight: 16,
   },
-  boxGrid: {
+  featureGrid: {
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
   },
-  box: {
-  width: width / 2 - 24,
-  backgroundColor: "#fff",
-  borderRadius: 12,
-  padding: 16,
-  marginBottom: 16,
-  alignItems: "center",
-  shadowColor: "#000",
-  shadowOpacity: 0.1,
-  shadowOffset: { width: 0, height: 2 },
-  shadowRadius: 4,
-  elevation: 3,
-
-  // Make it a flex container
-  flexDirection: "column",
-  justifyContent: "space-between", // this pushes content to top and bottom
-  height: 200, // set a fixed height for consistent spacing
-},
-
-  boxTitle: {
-    fontSize: 16,
+  featureBox: {
+    width: width / 2 - 24,
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 16,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 3,
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height: 200,
+  },
+  featureTitle: {
+    fontSize: 18,
     fontWeight: "700",
     marginTop: 8,
+    marginBottom: 4,
     color: "#222",
     textAlign: "center",
   },
-  boxSub: {
-    fontSize: 14,
+  featureSubtitle: {
+    fontSize: 16,
     color: "#555",
     marginVertical: 8,
-    marginBottom:0,
+    textAlign: "center",
   },
- boxButton: {
-  borderColor:"#4D2415",
-  borderWidth:1,
-  paddingVertical: 12,
-  paddingHorizontal: 16,
-  borderRadius: 8,
-  // remove marginTop
-  alignSelf: "stretch", // optional: makes button full width inside box
-},
-
-  buttonText: {
+  featureButton: {
+    borderColor: "#4D2415",
+    borderWidth: 1,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    alignSelf: "stretch",
+  },
+  buttonLabel: {
     color: "#4D2415",
     fontWeight: "700",
-    fontSize: 14,
+    fontSize: 16,
+    textAlign: "center",
   },
 });
