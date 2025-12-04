@@ -15,22 +15,22 @@ export default function HomeScreen() {
       buttonText: "Submit Request",
     },
     {
-      icon: "heart-outline",
+      icon: "people-outline",
       title1: "Devotional",
       title2: "Daily Devotion Tips",
-      buttonText: "Read Now",
+      buttonText: "Browse Forums",
     },
     {
-      icon: "book-outline",
+      icon: "help-circle-outline",
       title1: "Bible Study",
       title2: "Grow in Faith",
-      buttonText: "Start Learning",
+      buttonText: "View FAQs",
     },
     {
-      icon: "mic-outline",
+      icon: "mail-outline",
       title1: "Podcast",
       title2: "Listen to Sermons",
-      buttonText: "Listen Now",
+      buttonText: "Contact Us",
     },
   ];
 
@@ -66,7 +66,7 @@ export default function HomeScreen() {
       <View style={styles.boxGrid}>
         {BoxContents.map((box, index) => (
           <View key={index} style={styles.box}>
-            <Ionicons name={box.icon} size={30} color="#4B7BE5" />
+            <Ionicons name={box.icon} size={30} color="#4D2415" />
             <Text style={styles.boxTitle}>{box.title1}</Text>
             <Text style={styles.boxSub}>{box.title2}</Text>
             <TouchableOpacity style={styles.boxButton}>
@@ -135,18 +135,24 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   box: {
-    width: width / 2 - 24, // 2 boxes per row with padding
-    backgroundColor: "#fff",
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
-    elevation: 3,
-  },
+  width: width / 2 - 24,
+  backgroundColor: "#fff",
+  borderRadius: 12,
+  padding: 16,
+  marginBottom: 16,
+  alignItems: "center",
+  shadowColor: "#000",
+  shadowOpacity: 0.1,
+  shadowOffset: { width: 0, height: 2 },
+  shadowRadius: 4,
+  elevation: 3,
+
+  // Make it a flex container
+  flexDirection: "column",
+  justifyContent: "space-between", // this pushes content to top and bottom
+  height: 200, // set a fixed height for consistent spacing
+},
+
   boxTitle: {
     fontSize: 16,
     fontWeight: "700",
@@ -158,15 +164,17 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#555",
     marginVertical: 8,
-    textAlign: "center",
+    marginBottom:0,
   },
-  boxButton: {
-    backgroundColor: "#4B7BE5",
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    marginTop: 8,
-  },
+ boxButton: {
+  backgroundColor: "#8C4227",
+  paddingVertical: 12,
+  paddingHorizontal: 16,
+  borderRadius: 8,
+  // remove marginTop
+  alignSelf: "stretch", // optional: makes button full width inside box
+},
+
   buttonText: {
     color: "#fff",
     fontWeight: "700",
