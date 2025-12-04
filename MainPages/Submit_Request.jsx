@@ -13,6 +13,8 @@ export default function SubmitPrayerRequest() {
       if (!fontsLoaded) return <></>;
   return (
     <ScrollView contentContainerStyle={styles.container}>
+
+        <Text style={styles.mainHeading}>Submit Prayer Request</Text>
       {/* Name */}
       <Text style={styles.label}>Name (optional)</Text>
       <TextInput
@@ -60,6 +62,11 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
 
+  mainHeading:{
+       fontSize:20,
+       fontFamily:"Lato_400Regular",
+       marginBottom:20,
+  },
   // Labels
   label: {
     fontSize: 16,
@@ -103,7 +110,7 @@ const styles = StyleSheet.create({
   inlineButtons: {
     flexDirection: "row",
     justifyContent: "flex-end",
-    marginTop: 200,
+    marginTop: 170,
     bottom:10,
 
   },
