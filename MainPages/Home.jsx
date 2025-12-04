@@ -39,28 +39,28 @@ export default function HomeScreen() {
       {/* Header */}
       <Text style={styles.header}>Your Daily Devotion</Text>
 
-      {/* Upper Content */}
-      <View style={styles.upperContents}>
-        {/* Left side text */}
-        <View style={styles.leftSide}>
-          <Text style={styles.prep}>Prepare Your Heart To Meet With God</Text>
-          <Text style={styles.subprep}>By Pastor James Muyango</Text>
-          <View style={styles.TextIconRow}>
-            <Ionicons name="book-outline" size={20} color="#555" />
-            <Text style={styles.iconText}>5 min read</Text>
-            <Ionicons name="headset-outline" size={20} color="#555" style={{ marginLeft: 20 }} />
-            <Text style={styles.iconText}>3 min listen</Text>
-          </View>
-        </View>
+<View style={styles.upperContents}>
+  {/* Left side video */}
+  <Video
+    source={{ uri: "https://www.w3schools.com/html/mov_bbb.mp4" }}
+    style={styles.video}
+    controls={true}
+    resizeMode="cover"
+  />
 
-        {/* Right side video */}
-        <Video
-          source={{ uri: "https://www.w3schools.com/html/mov_bbb.mp4" }} // replace with your video
-          style={styles.video}
-          controls={true}
-          resizeMode="contain"
-        />
-      </View>
+  {/* Right side text */}
+  <View style={styles.leftSide}>
+    <Text style={styles.prep}>Prepare Your Heart To Meet With God</Text>
+    <Text style={styles.subprep}>By Pastor James Muyango</Text>
+    <View style={styles.TextIconRow}>
+      <Ionicons name="book-outline" size={20} color="#555" />
+      <Text style={styles.iconText}>5 min read</Text>
+      <Ionicons name="headset-outline" size={20} color="#555" style={{ marginLeft: 20 }} />
+      <Text style={styles.iconText}>3 min listen</Text>
+    </View>
+  </View>
+</View>
+
 
       {/* Boxes Grid */}
       <View style={styles.boxGrid}>
@@ -81,7 +81,6 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 16,
     backgroundColor: "#f9f9f9",
   },
@@ -94,16 +93,21 @@ const styles = StyleSheet.create({
   },
   upperContents: {
     flexDirection: "row",
-    width: "100%",
     marginBottom: 24,
     backgroundColor: "#fff",
     borderRadius: 12,
-    overflow: "hidden",
+    gap:50,
+    justifyContent:"space-between",
   },
   leftSide: {
-    flex: 1,
-    padding: 16,
-    justifyContent: "center",
+   width:"50%",
+   justifyContent:"flex-end",
+   textAlign:"right",
+  },
+   video: {
+   width:"50%",
+   height: 180,
+   margin:20,
   },
   prep: {
     fontSize: 20,
@@ -118,16 +122,11 @@ const styles = StyleSheet.create({
   },
   TextIconRow: {
     flexDirection: "row",
-    alignItems: "center",
   },
   iconText: {
     marginLeft: 6,
     fontSize: 14,
     color: "#555",
-  },
-  video: {
-    flex: 1,
-    height: 180,
   },
   boxGrid: {
     flexDirection: "row",
@@ -167,7 +166,8 @@ const styles = StyleSheet.create({
     marginBottom:0,
   },
  boxButton: {
-  backgroundColor: "#8C4227",
+  borderColor:"#4D2415",
+  borderWidth:1,
   paddingVertical: 12,
   paddingHorizontal: 16,
   borderRadius: 8,
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
 },
 
   buttonText: {
-    color: "#fff",
+    color: "#4D2415",
     fontWeight: "700",
     fontSize: 14,
   },
