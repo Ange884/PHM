@@ -1,9 +1,16 @@
 import React from "react";
 import { Dimensions, StyleSheet, Text, TextInput, TouchableOpacity, View, ScrollView } from "react-native";
+import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 
 const { width } = Dimensions.get("window");
 
 export default function SubmitPrayerRequest() {
+    let [fontsLoaded] = useFonts({
+        Lato_400Regular,
+        Lato_700Bold,
+      });
+    
+      if (!fontsLoaded) return <></>;
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {/* Name */}
@@ -60,6 +67,7 @@ const styles = StyleSheet.create({
     color: "#333",
     marginBottom: 6,
     marginTop: 12,
+    fontFamily:"Lato_400Regular",
   },
 
   // Standard input
@@ -69,39 +77,42 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 10,
     paddingHorizontal: 12,
-    fontSize: 14,
+    fontSize: 16,
     borderWidth: 1,
     borderColor: "#ddd",
     marginBottom: 8,
+    fontFamily:"Lato_400Regular",
   },
 
   // Large input for prayer request
   bigInput: {
     width: "100%",
-    minHeight: 120,
+    minHeight: 150,
     backgroundColor: "#fff",
     borderRadius: 10,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    fontSize: 14,
+    fontSize: 16,
     borderWidth: 1,
     borderColor: "#ddd",
     marginBottom: 12,
+    fontFamily:"Lato_400Regular",
   },
 
   // Buttons container
   inlineButtons: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 100,
+    justifyContent: "flex-end",
+    marginTop: 200,
     bottom:10,
+
   },
 
   // Cancel button
   cancelButton: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingVertical: 12,
+    paddingVertical: 16,
     borderRadius: 10,
     borderColor:"#333",
     borderWidth:1,
@@ -112,13 +123,14 @@ const styles = StyleSheet.create({
     color: "#555",
     fontWeight: "700",
     fontSize: 14,
+    fontFamily:"Lato_400Regular",
   },
 
   // Submit button
   requestButton: {
     flex: 1,
     backgroundColor: "#8C4227",
-    paddingVertical: 12,
+    paddingVertical: 16,
     borderRadius: 10,
     marginLeft: 8,
     alignItems: "center",
@@ -126,6 +138,7 @@ const styles = StyleSheet.create({
   requestText: {
     color: "#fff",
     fontWeight: "700",
-    fontSize: 14,
+    fontSize: 15,
+    fontFamily:"Lato_400Regular",
   },
 });
