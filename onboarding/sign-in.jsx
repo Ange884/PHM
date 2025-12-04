@@ -41,7 +41,9 @@ export default function SignInScreen({ navigation, checked, onPress}) {
 
 
         {/* Create Account Button */}
-        <TouchableOpacity style={styles.createBtn}>
+        <TouchableOpacity style={styles.createBtn} 
+          onPress={() =>navigation.navigate("home")}
+        >
           <Text style={styles.createBtnText}>Create Account</Text>
         </TouchableOpacity>
 
