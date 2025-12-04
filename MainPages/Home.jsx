@@ -1,7 +1,7 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Video from "react-native-video";
+import {Video} from "expo-av";
 
 const { width } = Dimensions.get("window");
 
@@ -43,7 +43,7 @@ export default function HomeScreen() {
         <Video
           source={{ uri: "https://www.w3schools.com/html/mov_bbb.mp4" }}
           style={styles.video}
-          controls={true}
+          useNativeControls
           resizeMode="cover"
         />
 
