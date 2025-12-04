@@ -10,7 +10,7 @@ export default function HomeScreen() {
     {
       icon: "chatbubble-outline",
       title1: "Prayer Regular",
-      title2: "Share Your Prayer needs",
+      title2: "Share your Prayer needs",
       buttonText: "Submit Request",
     },
     {
@@ -49,7 +49,7 @@ export default function HomeScreen() {
 
         {/* Text Content */}
         <View style={styles.textContent}>
-          <Text style={styles.mainText}>Prepare Your Heart <br/> To Meet With God</Text>
+          <Text style={styles.mainText}>Prepare your heart to <br/>meet with God</Text>
           <Text style={styles.subText}>By Pastor James Muyango</Text>
           <View style={styles.iconRow}>
             <Ionicons name="book-outline" size={20} color="#555" />
@@ -92,37 +92,37 @@ const styles = StyleSheet.create({
   },
   devotionSection: {
     flexDirection: "row",
+    justifyContent:"space-between",
     marginBottom: 24,
     backgroundColor: "#fff",
     borderRadius: 12,
-    overflow: "hidden",
-    gap: 50,
+   
   },
   video: {
-    width: "50%",
-    height: 200,
+    width: "40%",
+    height: 128,
     backgroundColor: "#000",
+    borderRadius: 12,
   },
   textContent: {
     flex: 1,
-    width:"50%",
+    width:"60%",
     padding: 16,
     alignItems: "flex-end",
-    marginLeft:20,
   },
   mainText: {
-    fontSize: 18,
-    fontWeight: "700",
+    fontSize: 16,
+    fontWeight:400,
     marginBottom: 8,
     color: "#222",
-    textAlign: "left",
-    lineHeight: 28,
+    lineHeight: 19,
+    marginRight:27,
   },
   subText: {
-    fontSize: 18,
+    fontSize: 13,
     color: "#555",
     marginBottom: 12,
-    textAlign: "left",
+    marginRight: 33,
   },
   iconRow: {
     flexDirection: "row",
@@ -130,15 +130,16 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   iconLabel: {
-    marginLeft: 6,
-    fontSize: 16,
+    marginRight: 6,
+    fontSize: 12,
     color: "#555",
-    marginRight: 16,
+    marginLeft:6,
   },
   featureGrid: {
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
+    height:200,
   },
   featureBox: {
     width: width / 2 - 24,
@@ -181,7 +182,7 @@ const styles = StyleSheet.create({
   buttonLabel: {
     color: "#4D2415",
     fontWeight: "700",
-    fontSize: 16,
+    fontSize: 14,
     textAlign: "center",
   },
 });
