@@ -32,7 +32,7 @@ export default function WelcomeScreen({navigation}) {
                 </TouchableOpacity>
 
                 <Text style={styles.signInText}>
-                    Already have an account? <Text style={styles.highlight}>Log in</Text>
+                    Already have an account? <Text style={styles.highlight} onPress={()=>navigation.navigate("signin")}>Log in</Text>
                 </Text>
             </View>
         </ImageBackground>
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     },
     highlight: {
         fontWeight: 'bold',
-        textDecorationLine: 'underline',
+        color:"#8C4227",
     },
 });
 

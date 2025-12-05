@@ -2,10 +2,18 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import {Video} from "expo-av";
+import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 
 const { width } = Dimensions.get("window");
 
 export default function HomeScreen({navigation}) {
+     let [fontsLoaded] = useFonts({
+        Lato_400Regular,
+        Lato_700Bold,
+      });
+    
+      if (!fontsLoaded) return <></>;
+
   const BoxContents = [
   {
     icon: "chatbubble-outline",
@@ -46,7 +54,7 @@ export default function HomeScreen({navigation}) {
       <View style={styles.devotionSection}>
         {/* Video */}
         <Video
-          source={{ uri: "https://www.w3schools.com/html/mov_bbb.mp4" }}
+          source={{ uri: "https://youtu.be/Sgd23lw8NVY" }}
           style={styles.video}
           useNativeControls
           resizeMode="cover"
@@ -107,6 +115,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     backgroundColor: "#fff",
     borderRadius: 12,
+    fontFamily:"Lato_400Regular",
    
   },
   video: {
@@ -128,12 +137,14 @@ const styles = StyleSheet.create({
     color: "#222",
     lineHeight: 19,
     marginRight:27,
+    fontFamily:"Lato_400Regular",
   },
   subText: {
     fontSize: 13,
     color: "#555",
     marginBottom: 12,
     marginRight: 33,
+    fontFamily:"Lato_400Regular",
   },
   iconRow: {
     flexDirection: "row",
@@ -145,6 +156,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#555",
     marginLeft:6,
+    fontFamily:"Lato_400Regular",
   },
   featureGrid: {
     flexDirection: "row",
@@ -175,6 +187,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     color: "#222",
     textAlign: "center",
+    fontFamily:"Lato_400Regular",
   },
   featureSubtitle: {
     fontSize: 16,
@@ -195,5 +208,6 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     fontSize: 14,
     textAlign: "center",
+    fontFamily:"Lato_400Regular",
   },
 });
