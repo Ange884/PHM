@@ -4,7 +4,7 @@ import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato
 
 const { width } = Dimensions.get("window");
 
-export default function SubmitPrayerRequest() {
+export default function SubmitPrayerRequest({navigation}) {
     let [fontsLoaded] = useFonts({
         Lato_400Regular,
         Lato_700Bold,
@@ -44,7 +44,7 @@ export default function SubmitPrayerRequest() {
 
       {/* Buttons */}
       <View style={styles.inlineButtons}>
-        <TouchableOpacity style={styles.cancelButton}>
+        <TouchableOpacity style={styles.cancelButton} onPress={()=>navigation.navigate("home")}>
           <Text style={styles.cancelText}>Cancel</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.requestButton}>
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "700",
     color: "#333",
-    marginBottom: 6,
+    marginBottom: 12,
     marginTop: 12,
     fontFamily:"Lato_400Regular",
   },
@@ -80,11 +80,11 @@ const styles = StyleSheet.create({
   // Standard input
   input: {
     width: "100%",
-    height: 45,
+    height: 55,
     backgroundColor: "#fff",
     borderRadius: 10,
     paddingHorizontal: 12,
-    fontSize: 16,
+    fontSize: 18,
     borderWidth: 1,
     borderColor: "#ddd",
     marginBottom: 8,
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddingHorizontal: 12,
     paddingVertical: 10,
-    fontSize: 16,
+    fontSize: 18,
     borderWidth: 1,
     borderColor: "#ddd",
     marginBottom: 12,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   inlineButtons: {
     flexDirection: "row",
     justifyContent: "flex-end",
-    marginTop: 170,
+    marginTop: 130,
     bottom:10,
 
   },

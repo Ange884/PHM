@@ -34,7 +34,7 @@ export default function HomeScreen({navigation}) {
     title1: "Bible Study",
     title2: "Grow in Faith",
     buttonText: "View FAQs",
-    screen: "FAQsPage",
+    screen: "questions",
   },
   {
     icon: "mail-outline",
