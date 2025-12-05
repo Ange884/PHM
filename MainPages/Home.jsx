@@ -41,7 +41,7 @@ export default function HomeScreen({navigation}) {
     title1: "Podcast",
     title2: "Listen to Sermons",
     buttonText: "Contact Us",
-    screen: "PodcastPage",
+    screen: "contacts",
   },
 ];
 

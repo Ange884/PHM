@@ -10,6 +10,7 @@ import SignInScreen from "../onboarding/sign-in.jsx";
 import HomeScreen from "../MainPages/Home.jsx";
 import SubmitPrayerRequest from "../MainPages/Submit_Request.jsx";
 import FAQsScreen from "../MainPages/FAQs.jsx";
+import ContactUsScreen from "../MainPages/ContactUs.jsx";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ export default function MainScreen() {
         <Stack.Screen name="home" component={HomeScreen}/>
         <Stack.Screen name="request" component={SubmitPrayerRequest}/>
         <Stack.Screen name="questions" component={FAQsScreen}/>
+        <Stack.Screen name="contacts" component={ContactUsScreen}/>
       </Stack.Navigator>
   );
 }
