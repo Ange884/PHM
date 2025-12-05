@@ -7,9 +7,16 @@ import {
   ScrollView,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 
 export default function FAQsScreen() {
   const [openIndex, setOpenIndex] = useState(null);
+  let [fontsLoaded] = useFonts({
+          Lato_400Regular,
+          Lato_700Bold,
+        });
+      
+        if (!fontsLoaded) return <></>;
 
   const Questions = [
     {
@@ -65,6 +72,7 @@ export default function FAQsScreen() {
           {openIndex === index && (
             <Text style={styles.answer}>{item.answer}</Text>
           )}
+          <View style={styles.SeparatorLine}></View>
         </View>
       ))}
     </ScrollView>
@@ -80,13 +88,14 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 22,
     fontWeight: "700",
-    marginBottom: 20,
-    textAlign: "center",
+    marginBottom: 30,
+    textAlign: "left",
+    marginLeft: 9,
     color: "#2c2c2c",
+    fontFamily:"Lato_400Regular",
   },
   questionBox: {
-    backgroundColor: "#fff",
-    padding: 15,
+    padding: 10,
     borderRadius: 12,
     marginBottom: 12,
     elevation: 2,
@@ -97,16 +106,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   question: {
-    fontSize: 16,
-    color: "#111",
-    fontWeight: "600",
+    fontSize: 18,
+    color: "#001",
+    fontWeight: "400",
     flex: 1,
     marginRight: 10,
+    fontFamily:"Lato_400Regular",
   },
   answer: {
     marginTop: 10,
-    fontSize: 14,
-    color: "#444",
+    fontSize: 16,
+    color: "#333",
     lineHeight: 20,
+    fontFamily:"Lato_400Regular",
   },
+  SeparatorLine: {
+  height: 1,
+  backgroundColor: "#555",
+  width: "100%",
+  marginVertical: 12,
+}
+
 });
