@@ -3,6 +3,8 @@ import React from "react";
 import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import {Video} from "expo-av";
 import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
+import { useNavigation } from "@react-navigation/native";
+import NavbarScreen from "../components/Navbar.jsx";
 
 const { width } = Dimensions.get("window");
 
@@ -47,6 +49,7 @@ export default function HomeScreen({navigation}) {
 
 
   return (
+    <>
     <ScrollView style={styles.container}>
       {/* Header */}
       <Text style={styles.header}>Your Daily Devotion</Text>
@@ -93,6 +96,12 @@ export default function HomeScreen({navigation}) {
 </View>
 
     </ScrollView>
+
+    {/* Navbar */}
+    <View>
+      <NavbarScreen />
+      </View>
+      </>
   );
 }
 

@@ -1,45 +1,90 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-} from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Image, StyleSheet } from "react-native";
 
-export default function NavbarFooter() {
-  const [openIndex, setOpenIndex] = useState(null);
-  let [fontsLoaded] = useFonts({
-          Lato_400Regular,
-          Lato_700Bold,
-        });
-      
-        if (!fontsLoaded) return <></>;
+// Import your screens
+// import HomeScreen from "./screens/HomeScreen";
+// import DevotionScreen from "./screens/DevotionScreen";
+// import DiscoverScreen from "./screens/DiscoverScreen";
+// import BibleStudyScreen from "./screens/BibleStudyScreen";
+// import MoreScreen from "./screens/MoreScreen";
 
-        return (
-            <View style={styles.navbar}>
-                <TouchableOpacity >
-                <Image source={require('../assets/images/Home.png')} style={styles.navicon} />
-                <Text style={styles.navText}>Home</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                <Image source={require('../assets/images/Devotion.png')} style={styles.navicon} />
-                <Text style={styles.navText}>Daily Devotions</Text>
-                </TouchableOpacity>
-                 <TouchableOpacity>
-                <Image source={require("../assets/images/discover.png")} style={styles.navicon} />
-                <Text style={styles.navText}>Discover</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                <Image source={require("../assets/images/biblestudy.png")} style={styles.navicon} />
-                <Text style={styles.navText}>Bible study</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                <Image source={require("../assets/images/More.png")} style={styles.navicon} />
-                <Text style={styles.navText}>More</Text>
-                </TouchableOpacity>
-                </View>
-        );
-    }
+const Tab = createBottomTabNavigator();
+
+export default function Navigation() {
+  return (
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          headerShown: false,
+
+          // === NAVBAR STYLE ===
+          tabBarStyle: {
+            height: 70,
+            backgroundColor: "#ffffff",
+            paddingBottom: 8,
+            paddingTop: 8,
+          },
+
+          // === ACTIVE / INACTIVE COLORS ===
+          tabBarActiveTintColor: "#582FFB",     // Purple active
+          tabBarInactiveTintColor: "#9E9E9E",   // Grey inactive
+
+          // === ICON RENDERING WITH TINT ===
+          tabBarIcon: ({ focused }) => {
+            let iconSource;
+
+            switch (route.name) {
+              case "Home":
+                iconSource = require("../assets/images/Home.png");
+                break;
+              case "Daily Devotions":
+                iconSource = require("../assets/images/Devotion.png");
+                break;
+              case "Discover":
+                iconSource = require("../assets/images/Discover.png");
+                break;
+              case "Bible Study":
+                iconSource = require("../assets/images/biblestudy.png");
+                break;
+              case "More":
+                iconSource = require("../assets/images/More.png");
+                break;
+            }
+
+            return (
+              <Image
+                source={iconSource}
+                style={[
+                  styles.icon,
+                  {
+                    tintColor: focused ? "#582FFB" : "#9E9E9E",
+                  },
+                ]}
+              />
+            );
+          },
+
+          // === LABEL STYLE ===
+          tabBarLabelStyle: {
+            fontSize: 12,
+            fontFamily: "Lato_400Regular",
+          },
+        })}
+      >
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Daily Devotions" component={DevotionScreen} /> 
+        <Tab.Screen name="Discover" component={DiscoverScreen} />
+        <Tab.Screen name="Bible Study" component={BibleStudyScreen} />
+        <Tab.Screen name="More" component={MoreScreen} />
+      </Tab.Navigator>
+  );
+}
+
+const styles = StyleSheet.create({
+  icon: {
+    width: 26,
+    height: 26,
+    resizeMode: "contain",
+  },
+});
