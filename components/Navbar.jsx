@@ -4,7 +4,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Image, StyleSheet } from "react-native";
 
 //Import your screens
-import HomeScreen from "../MainPages/Home.jsx";
 import DevotionScreen from "../MainPages/Devotion.jsx";
 import DiscoverScreen from "../MainPages/Discover.jsx";
 import BibleStudyScreen from "../MainPages/Biblestudy.jsx";
@@ -35,9 +34,9 @@ export default function Navigation() {
             let iconSource;
 
             switch (route.name) {
-              case "Home":
-                iconSource = require("../assets/images/Home.png");
-                break;
+            //   case "Home":
+            //     iconSource = require("../assets/images/Home.png");
+            //     break;
               case "Daily Devotions":
                 iconSource = require("../assets/images/Devotion.png");
                 break;
@@ -72,7 +71,7 @@ export default function Navigation() {
           },
         })}
       >
-        <Tab.Screen name="Home" component={HomeScreen} />
+        {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
         <Tab.Screen name="Daily Devotions" component={DevotionScreen} /> 
         <Tab.Screen name="Discover" component={DiscoverScreen} />
         <Tab.Screen name="Bible Study" component={BibleStudyScreen} />
