@@ -5,10 +5,10 @@ import { Image, StyleSheet } from "react-native";
 
 //Import your screens
 import HomeScreen from "../MainPages/Home.jsx";
-import DevotionScreen from "./screens/DevotionScreen";
-import DiscoverScreen from "./screens/DiscoverScreen";
-import BibleStudyScreen from "./screens/BibleStudyScreen";
-import MoreScreen from "./screens/MoreScreen";
+import DevotionScreen from "../MainPages/Devotion.jsx";
+import DiscoverScreen from "../MainPages/Discover.jsx";
+import BibleStudyScreen from "../MainPages/Biblestudy.jsx";
+import MoreScreen from "../MainPages/More.jsx";
 
 const Tab = createBottomTabNavigator();
 
