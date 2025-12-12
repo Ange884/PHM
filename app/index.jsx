@@ -1,33 +1,55 @@
-import WelcomeScreen from "../onboarding/welcome.jsx";
+// navigation/AppNavigator.jsx
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+
+// Import all your screens
+import WelcomeScreen from "../onboarding/welcome.jsx";
 import OnboardingScreen from "../onboarding/onboarding.jsx";
 import OnboardingScreen2 from "../onboarding/onboarding2.jsx";
 import OnboardingScreen3 from "../onboarding/onboarding3.jsx";
-import SignUpScreen from "../onboarding/Sign-up.jsx"; 
+import SignUpScreen from "../onboarding/Sign-up.jsx";
 import SignInScreen from "../onboarding/sign-in.jsx";
 import HomeScreen from "../MainPages/Home.jsx";
+import DevotionScreen from "../MainPages/Devotion.jsx";
+import DiscoverScreen from "../MainPages/Discover.jsx";
+import BibleStudyScreen from "../MainPages/Biblestudy.jsx";
+import MoreScreen from "../MainPages/More.jsx";
 import SubmitPrayerRequest from "../MainPages/Submit_Request.jsx";
 import FAQsScreen from "../MainPages/FAQs.jsx";
 import ContactUsScreen from "../MainPages/ContactUs.jsx";
 
 const Stack = createNativeStackNavigator();
 
-export default function MainScreen() {
+export default function AppNavigator() {
   return (
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+    
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+          gestureEnabled: true,
+        }}
+      >
+        {/* Onboarding Flow */}
         <Stack.Screen name="Welcome" component={WelcomeScreen} />
-        <Stack.Screen name="/" component={WelcomeScreen} />
-        <Stack.Screen name="onboarding1" component={OnboardingScreen} />
-        <Stack.Screen name="onboarding2" component={OnboardingScreen2} />
-        <Stack.Screen name="onboarding3" component={OnboardingScreen3} />
+        <Stack.Screen name="Onboarding1" component={OnboardingScreen} />
+        <Stack.Screen name="Onboarding2" component={OnboardingScreen2} />
+        <Stack.Screen name="Onboarding3" component={OnboardingScreen3} />
         <Stack.Screen name="signup" component={SignUpScreen} />
         <Stack.Screen name="signin" component={SignInScreen} />
-        <Stack.Screen name="home" component={HomeScreen}/>
-        <Stack.Screen name="request" component={SubmitPrayerRequest}/>
-        <Stack.Screen name="questions" component={FAQsScreen}/>
-        <Stack.Screen name="contacts" component={ContactUsScreen}/>
+
+        {/* Main App Screens */}
+        <Stack.Screen name="home" component={HomeScreen} />
+        <Stack.Screen name="DailyDevotions" component={DevotionScreen} />
+        <Stack.Screen name="Discover" component={DiscoverScreen} />
+        <Stack.Screen name="BibleStudy" component={BibleStudyScreen} />
+        <Stack.Screen name="More" component={MoreScreen} />
+
+        {/* Additional Screens */}
+        <Stack.Screen name="SubmitPrayer" component={SubmitPrayerRequest} />
+        <Stack.Screen name="FAQs" component={FAQsScreen} />
+        <Stack.Screen name="ContactUs" component={ContactUsScreen} />
       </Stack.Navigator>
+
   );
 }

@@ -1,55 +1,52 @@
+// MainPages/Home.jsx
 import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import {Video} from "expo-av";
+import { Video } from "expo-av";
 import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
-import { useNavigation } from "@react-navigation/native";
-import NavbarScreen from "../components/Navbar.jsx";
 
 const { width } = Dimensions.get("window");
 
-export default function HomeScreen({navigation}) {
-     let [fontsLoaded] = useFonts({
-        Lato_400Regular,
-        Lato_700Bold,
-      });
-    
-      if (!fontsLoaded) return <></>;
+export default function HomeScreen({ navigation }) {
+  let [fontsLoaded] = useFonts({
+    Lato_400Regular,
+    Lato_700Bold,
+  });
+
+  if (!fontsLoaded) return <></>;
 
   const BoxContents = [
-  {
-    icon: "chatbubble-outline",
-    title1: "Prayer Regular",
-    title2: "Share your Prayer needs",
-    buttonText: "Submit Request",
-    screen: "request", // screen name to navigate to
-  },
-  {
-    icon: "people-outline",
-    title1: "Devotional",
-    title2: "Daily Devotion Tips",
-    buttonText: "Browse Forums",
-    screen: "DevotionalPage",
-  },
-  {
-    icon: "help-circle-outline",
-    title1: "Bible Study",
-    title2: "Grow in Faith",
-    buttonText: "View FAQs",
-    screen: "questions",
-  },
-  {
-    icon: "mail-outline",
-    title1: "Podcast",
-    title2: "Listen to Sermons",
-    buttonText: "Contact Us",
-    screen: "contacts",
-  },
-];
-
+    {
+      icon: "chatbubble-outline",
+      title1: "Prayer Regular",
+      title2: "Share your Prayer needs",
+      buttonText: "Submit Request",
+      screen: "SubmitPrayer", // Updated screen name
+    },
+    {
+      icon: "people-outline",
+      title1: "Devotional",
+      title2: "Daily Devotion Tips",
+      buttonText: "Browse Forums",
+      screen: "DailyDevotions", // Updated screen name
+    },
+    {
+      icon: "help-circle-outline",
+      title1: "Bible Study",
+      title2: "Grow in Faith",
+      buttonText: "View FAQs",
+      screen: "FAQs", // Updated screen name
+    },
+    {
+      icon: "mail-outline",
+      title1: "Podcast",
+      title2: "Listen to Sermons",
+      buttonText: "Contact Us",
+      screen: "ContactUs", // Updated screen name
+    },
+  ];
 
   return (
-    <>
     <ScrollView style={styles.container}>
       {/* Header */}
       <Text style={styles.header}>Your Daily Devotion</Text>
@@ -65,7 +62,7 @@ export default function HomeScreen({navigation}) {
 
         {/* Text Content */}
         <View style={styles.textContent}>
-          <Text style={styles.mainText}>Prepare your heart to <br/>meet with God</Text>
+          <Text style={styles.mainText}>Prepare your heart to <br />meet with God</Text>
           <Text style={styles.subText}>By Pastor James Muyango</Text>
           <View style={styles.iconRow}>
             <Ionicons name="book-outline" size={20} color="#555" />
@@ -77,35 +74,85 @@ export default function HomeScreen({navigation}) {
       </View>
 
       {/* Feature Boxes Grid */}
-  <View style={styles.featureGrid}>
-     {BoxContents.map((box, index) => (
-    <View key={index} style={styles.featureBox}>
-      <Ionicons name={box.icon} size={30} color="#4D2415" />
-      <Text style={styles.featureTitle}>{box.title1}</Text>
-      <Text style={styles.featureSubtitle}>{box.title2}</Text>
-      
-      {/* Button triggers navigation */}
-      <TouchableOpacity
-        style={styles.featureButton}
-        onPress={() => navigation.navigate(box.screen)}
-      >
-        <Text style={styles.buttonLabel}>{box.buttonText}</Text>
-      </TouchableOpacity>
-    </View>
-  ))}
-</View>
+      <View style={styles.featureGrid}>
+        {BoxContents.map((box, index) => (
+          <View key={index} style={styles.featureBox}>
+            <Ionicons name={box.icon} size={30} color="#4D2415" />
+            <Text style={styles.featureTitle}>{box.title1}</Text>
+            <Text style={styles.featureSubtitle}>{box.title2}</Text>
 
-    </ScrollView>
-
-    {/* Navbar */}
-    <View>
-      <NavbarScreen />
+            <TouchableOpacity
+              style={styles.featureButton}
+              onPress={() => navigation.navigate(box.screen)}
+            >
+              <Text style={styles.buttonLabel}>{box.buttonText}</Text>
+            </TouchableOpacity>
+          </View>
+        ))}
       </View>
-      </>
+
+      {/* Navigation Buttons */}
+      <View style={styles.navButtons}>
+        <TouchableOpacity
+          style={styles.navButton}
+          onPress={() => navigation.navigate("DailyDevotions")}
+        >
+          <Ionicons name="book-outline" size={24} color="#8C4227" />
+          <Text style={styles.navButtonText}>Daily Devotions</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.navButton}
+          onPress={() => navigation.navigate("Discover")}
+        >
+          <Ionicons name="compass-outline" size={24} color="#8C4227" />
+          <Text style={styles.navButtonText}>Discover</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.navButton}
+          onPress={() => navigation.navigate("BibleStudy")}
+        >
+          <Ionicons name="library-outline" size={24} color="#8C4227" />
+          <Text style={styles.navButtonText}>Bible Study</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.navButton}
+          onPress={() => navigation.navigate("More")}
+        >
+          <Ionicons name="menu-outline" size={24} color="#8C4227" />
+          <Text style={styles.navButtonText}>More</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }
 
+// Add these new styles
 const styles = StyleSheet.create({
+
+  navButtons: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 24,
+    paddingHorizontal: 16,
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    paddingVertical: 16,
+  },
+  navButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+  },
+  navButtonText: {
+    marginTop: 8,
+    fontSize: 12,
+    color: "#8C4227",
+    fontFamily: "Lato_400Regular",
+  },
+
   container: {
     padding: 16,
     backgroundColor: "#f9f9f9",
@@ -220,3 +267,4 @@ const styles = StyleSheet.create({
     fontFamily:"Lato_400Regular",
   },
 });
+
