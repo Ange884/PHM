@@ -3,12 +3,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Image, StyleSheet } from "react-native";
 
-// Import your screens
-// import HomeScreen from "./screens/HomeScreen";
-// import DevotionScreen from "./screens/DevotionScreen";
-// import DiscoverScreen from "./screens/DiscoverScreen";
-// import BibleStudyScreen from "./screens/BibleStudyScreen";
-// import MoreScreen from "./screens/MoreScreen";
+//Import your screens
+import HomeScreen from "../MainPages/Home.jsx";
+import DevotionScreen from "./screens/DevotionScreen";
+import DiscoverScreen from "./screens/DiscoverScreen";
+import BibleStudyScreen from "./screens/BibleStudyScreen";
+import MoreScreen from "./screens/MoreScreen";
 
 const Tab = createBottomTabNavigator();
 
