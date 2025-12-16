@@ -14,15 +14,14 @@ import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato
 import FixedNavigationBar from "../components/Navbar.jsx";
 import { DancingScript_400Regular, DancingScript_500Medium, DancingScript_600SemiBold, useFonts as useFontsHandwriting } from "@expo-google-fonts/dancing-script";
 
-export default function DailyDevotion() {
+export default function DailyDevotionScreen({navigation}) {
     // Expanded devotion data with more items
     const devotionNotifications = [
         {
             id: 1,
             date: "TUESDAY, AUGUST 15, 2024",
-            title: "Walking in Faith",
+            title: "Walking in faith",
             subtitle: "By Pastor James Muyango",
-            content: "Trust in the LORD with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight. - Proverbs 3:5-6",
             min1: "5min read",
             min2: "3min listen",
             bibleVerse: "Proverbs 3:5-6"
@@ -30,9 +29,8 @@ export default function DailyDevotion() {
         {
             id: 2,
             date: "WEDNESDAY, AUGUST 16, 2024",
-            title: "The Power of Prayer",
+            title: "The Power of prayer",
             subtitle: "By Pastor Sarah Johnson",
-            content: "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. - Philippians 4:6",
             min1: "7min read",
             min2: "4min listen",
             bibleVerse: "Philippians 4:6"
@@ -40,9 +38,8 @@ export default function DailyDevotion() {
         {
             id: 3,
             date: "THURSDAY, AUGUST 17, 2024",
-            title: "Strength in Weakness",
+            title: "Strength in weakness",
             subtitle: "By Pastor Michael Chen",
-            content: "But he said to me, 'My grace is sufficient for you, for my power is made perfect in weakness.' Therefore I will boast all the more gladly about my weaknesses, so that Christ's power may rest on me. - 2 Corinthians 12:9",
             min1: "6min read",
             min2: "3min listen",
             bibleVerse: "2 Corinthians 12:9"
@@ -50,9 +47,8 @@ export default function DailyDevotion() {
         {
             id: 4,
             date: "FRIDAY, AUGUST 18, 2024",
-            title: "Love Your Neighbor",
+            title: "Love Your neighbor",
             subtitle: "By Pastor Maria Rodriguez",
-            content: "Love your neighbor as yourself. There is no commandment greater than these. - Mark 12:31",
             min1: "4min read",
             min2: "2min listen",
             bibleVerse: "Mark 12:31"
@@ -61,7 +57,7 @@ export default function DailyDevotion() {
 
     return (
         <View style={styles.container}>
-            <ScrollView 
+            <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={styles.scrollContainer}
             >
@@ -109,10 +105,10 @@ export default function DailyDevotion() {
                                     <Ionicons name="headset-outline" size={14} color="#8C4227" />
                                     <Text style={styles.timeText}>{notification.min2}</Text>
                                 </View>
-                                <TouchableOpacity style={styles.readButton}>
+                                {/* <TouchableOpacity style={styles.readButton}>
                                     <Text style={styles.readButtonText}>Read More</Text>
                                     <Ionicons name="chevron-forward" size={14} color="#fff" />
-                                </TouchableOpacity>
+                                </TouchableOpacity> */}
                             </View>
                         </View>
                     ))}
@@ -120,21 +116,32 @@ export default function DailyDevotion() {
 
                 {/* Reminder Section */}
                 <View style={styles.reminderContainer}>
-                    <Image 
-                        source={require("../assets/images/bible.png")} 
-                        style={styles.bibleImage}
-                        resizeMode="contain"
-                    />
-                    <Text style={styles.reminderDate}>TOMORROW, AUGUST 8, 2025</Text>
-                    <Text style={styles.reminderTitle}>Upcoming Devotion</Text>
-                    <Text style={styles.reminderDescription}>
-                        Get ready for tomorrow's inspiring message about walking in faith during uncertain times.
-                    </Text>
-                    <TouchableOpacity style={styles.reminderButton}>
-                        <Ionicons name="notifications-outline" size={18} color="#fff" />
-                        <Text style={styles.reminderButtonText}>Set Reminder</Text>
-                    </TouchableOpacity>
-                </View>
+    {/* Top Section with Image and Date */}
+    <View style={styles.reminderHeader}>
+        <View style={styles.imageDateWrapper}>
+            <Ionicons name="book-outline" size={24} color="#8C4227" style={styles.bibleImage} />
+            <View style={styles.dateWrapper}>
+                <Text style={styles.reminderDate}>TOMORROW, AUGUST 8, 2025</Text>
+                 <Text style={styles.reminderTitle}>Upcoming Devotion</Text>
+            </View>
+        </View>
+    </View>
+
+    {/* Content Section */}
+    <View style={styles.reminderContent}>
+       
+        <Text style={styles.reminderDescription}>
+            Get ready for tomorrow's inspiring message about walking in faith during uncertain times.
+        </Text>
+    </View>
+
+    {/* Button Section */}
+    <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.reminderButton}>
+            <Text style={styles.reminderButtonText}>Set Reminder</Text>
+        </TouchableOpacity>
+    </View>
+</View>
                 
                 {/* Bottom Spacing */}
                 <View style={{ height: 30 }} />
@@ -149,7 +156,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#F8F9FA",
     },
     scrollContainer: {
-        paddingBottom: 20,
+        paddingBottom: 5,
     },
     header: {
         paddingHorizontal: 20,
@@ -196,23 +203,21 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.15,
     },
     dateBadge: {
-        backgroundColor: "#F7FAFC",
-        paddingHorizontal: 12,
         paddingVertical: 6,
         borderRadius: 20,
         alignSelf: 'flex-start',
-        marginBottom: 15,
-        borderWidth: 1,
-        borderColor: "#E2E8F0",
+        marginBottom: 3,
     },
     dateText: {
-        fontSize: 12,
+        fontSize: 14,
         fontFamily: "Lato_700Bold",
-        color: "#4A5568",
+        color: "#666",
         letterSpacing: 0.5,
+        textAlign:"left",
+        alignSelf:"flex-start",
     },
     title: {
-        fontSize: 22,
+        fontSize: 18,
         fontFamily: "Lato_700Bold",
         color: "#2D3748",
         marginBottom: 5,
@@ -231,7 +236,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 12,
         paddingVertical: 8,
         borderRadius: 8,
-        marginBottom: 15,
+        marginBottom: 1,
         borderWidth: 1,
         borderColor: "#FEEBC8",
     },
@@ -282,63 +287,88 @@ const styles = StyleSheet.create({
         color: "#fff",
     },
     reminderContainer: {
-        marginHorizontal: 20,
-        marginTop: 10,
-        backgroundColor: "#fff",
-        borderRadius: 16,
-        padding: 24,
-        alignItems: 'center',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.08,
-        shadowRadius: 8,
-        elevation: 3,
-        borderWidth: 1,
-        borderColor: "#E2E8F0",
-    },
-    bibleImage: {
-        width: 80,
-        height: 80,
-        marginBottom: 15,
-    },
-    reminderDate: {
-        fontSize: 12,
-        fontFamily: "Lato_700Bold",
-        color: "#4A5568",
-        letterSpacing: 0.5,
-        marginBottom: 8,
-    },
-    reminderTitle: {
-        fontSize: 20,
-        fontFamily: "Lato_700Bold",
-        color: "#2D3748",
-        marginBottom: 10,
-    },
-    reminderDescription: {
-        fontSize: 15,
-        fontFamily: "Lato_400Regular",
-        color: "#718096",
-        textAlign: 'center',
-        lineHeight: 22,
-        marginBottom: 20,
-    },
-    reminderButton: {
-        backgroundColor: "#8C4227",
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 8,
-        paddingHorizontal: 24,
-        paddingVertical: 12,
-        borderRadius: 25,
-        minWidth: 180,
-        justifyContent: 'center',
-    },
-    reminderButtonText: {
-        fontSize: 15,
-        fontFamily: "Lato_600SemiBold",
-        color: "#fff",
-    },
+  backgroundColor: "#FFFFFF",
+  borderRadius: 16,
+  padding: 20,
+  marginVertical: 20,
+  elevation: 4,
+},
+
+/* HEADER */
+reminderHeader: {
+  marginBottom: 12,
+},
+
+imageDateWrapper: {
+  flexDirection: "row",
+  alignItems: "center",
+  gap: 10,
+},
+
+bibleImage: {
+  width:38,
+  height:38,
+  backgroundColor:"#F0E6DC",
+    padding:7,
+    borderRadius:50,
+},
+
+dateWrapper: {
+  justifyContent: "center",
+},
+
+reminderDate: {
+  fontSize: 14,
+  fontFamily: "Lato_400Regular",
+  color: "#555",
+  letterSpacing: 0.5,
+  marginBottom: 4,
+},
+
+/* CONTENT */
+reminderContent: {
+  marginTop: 8,
+  marginBottom: 18,
+},
+
+reminderTitle: {
+  fontSize: 15,
+  fontFamily: "Lato_700Bold",
+  color: "#2D3748",
+  marginBottom: 6,
+},
+
+reminderDescription: {
+  fontSize: 16,
+  fontFamily: "Lato_400Regular",
+  color: "#5D5D5D",
+  lineHeight: 20,
+  marginLeft: 10,
+},
+
+/* BUTTON */
+buttonContainer: {
+  marginTop: 6,
+},
+
+reminderButton: {
+  backgroundColor: "#F7ECE6",
+  borderRadius: 10,
+  paddingVertical: 14,
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+  borderWidth: 1,
+  borderColor: "#E8DDD9",
+},
+
+buttonIcon: {
+  marginRight: 8,
+},
+
+reminderButtonText: {
+  fontSize: 17,
+  fontFamily: "Lato_700Bold",
+  color: "#8C4227",
+},
 });
