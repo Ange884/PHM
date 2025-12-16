@@ -25,7 +25,9 @@ export default function DevotionScreen({ navigation }) {
       >
         {/* Header with language selector */}
         <View style={styles.topBar}>
-          <TouchableOpacity style={styles.iconButton}>
+          <TouchableOpacity style={styles.iconButton}
+           onPress={()=>navigation.navigate("DailyDevotion")}
+          >
             <Image 
               source={require("../assets/images/extensions.png")} // Update path as needed
               style={styles.logo}
