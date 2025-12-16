@@ -3,7 +3,7 @@ import { useFonts, Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-export default function OnboardingScreen2({navigation}) {
+export default function OnboardingScreen3({navigation}) {
     const [options, setOptions] = useState({
       newToBible: false,
       reconnecting: false,

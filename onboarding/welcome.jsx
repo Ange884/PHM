@@ -26,7 +26,7 @@ export default function WelcomeScreen({navigation}) {
                 <Text style={styles.subtitle}>Grow your daily Scripture through prayer and fellowship</Text>
 
                 <TouchableOpacity style={styles.button}
-                   onPress={()=>navigation.navigate("onboarding1")}
+                   onPress={()=>navigation.navigate("Onboarding1")}
                  >
                     <Text style={styles.buttonText}>Join now!</Text>
                 </TouchableOpacity>

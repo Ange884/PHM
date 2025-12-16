@@ -58,7 +58,7 @@ export default function OnboardingScreen({navigation}) {
           <Text style={styles.skipText}>Skip</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate("onboarding2")}>
+        <TouchableOpacity style={styles.nextButton} onPress={() => navigation.navigate("Onboarding2")}>
           <Text style={styles.nextButtonText}>continue</Text>
         </TouchableOpacity>
       </View>

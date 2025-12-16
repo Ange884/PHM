@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useFonts, Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 
-export default function OnboardingScreen3({navigation}) {
+export default function OnboardingScreen2({navigation}) {
     const [options, setOptions] = useState({
       newToBible: false,
       reconnecting: false,
@@ -74,7 +74,7 @@ export default function OnboardingScreen3({navigation}) {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.nextButton} 
-          onPress={() => navigation.navigate("onboarding3")}
+          onPress={() => navigation.navigate("Onboarding3")}
         >
           <Text style={styles.nextButtonText}>Continue</Text>
         </TouchableOpacity>
