@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f3f3f3",
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 4,
+    marginBottom: 2,
   },
 
   iconWrapperPressed: {
@@ -113,8 +113,8 @@ const styles = StyleSheet.create({
   },
 
   label: {
-    fontSize: 11,
-    color: "#666",
+    fontSize: 13,
+    color: "#333",
   },
 
   labelActive: {

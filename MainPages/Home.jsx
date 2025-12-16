@@ -48,8 +48,12 @@ export default function HomeScreen({ navigation }) {
   ];
 
   return (
-    <>
-    <ScrollView style={styles.container}>
+    <View style={{ flex: 1 }}>
+    <ScrollView style={styles.container}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{ paddingBottom: 10 }}
+
+      >
       {/* Header */}
       <Text style={styles.header}>Your Daily Devotion</Text>
 
@@ -96,7 +100,7 @@ export default function HomeScreen({ navigation }) {
 
     {/* Fixed Navigation Bar */}
     <FixedNavigationBar navigation={navigation}  />
-    </>
+    </View>
   );
 }
 
@@ -126,6 +130,7 @@ const styles = StyleSheet.create({
 
   container: {
     padding: 16,
+    paddingBottom:90,
     backgroundColor: "#f9f9f9",
   },
   header: {
@@ -189,7 +194,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-between",
-    height:200,
   },
   featureBox: {
     width: width / 2 - 24,
@@ -205,7 +209,6 @@ const styles = StyleSheet.create({
     elevation: 3,
     flexDirection: "column",
     justifyContent: "space-between",
-    height: 200,
   },
   featureTitle: {
     fontSize: 18,
