@@ -4,6 +4,7 @@ import React from "react";
 import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Video } from "expo-av";
 import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
+import FixedNavigationBar from "../components/Navbar.jsx";
 
 const { width } = Dimensions.get("window");
 
@@ -47,6 +48,7 @@ export default function HomeScreen({ navigation }) {
   ];
 
   return (
+    <>
     <ScrollView style={styles.container}>
       {/* Header */}
       <Text style={styles.header}>Your Daily Devotion</Text>
@@ -90,42 +92,11 @@ export default function HomeScreen({ navigation }) {
           </View>
         ))}
       </View>
-
-      {/* Navigation Buttons */}
-      <View style={styles.navButtons}>
-        <TouchableOpacity
-          style={styles.navButton}
-          onPress={() => navigation.navigate("DailyDevotions")}
-        >
-          <Ionicons name="book-outline" size={24} color="#8C4227" />
-          <Text style={styles.navButtonText}>Daily Devotions</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navButton}
-          onPress={() => navigation.navigate("Discover")}
-        >
-          <Ionicons name="compass-outline" size={24} color="#8C4227" />
-          <Text style={styles.navButtonText}>Discover</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navButton}
-          onPress={() => navigation.navigate("BibleStudy")}
-        >
-          <Ionicons name="library-outline" size={24} color="#8C4227" />
-          <Text style={styles.navButtonText}>Bible Study</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navButton}
-          onPress={() => navigation.navigate("More")}
-        >
-          <Ionicons name="menu-outline" size={24} color="#8C4227" />
-          <Text style={styles.navButtonText}>More</Text>
-        </TouchableOpacity>
-      </View>
     </ScrollView>
+
+    {/* Fixed Navigation Bar */}
+    <FixedNavigationBar navigation={navigation}  />
+    </>
   );
 }
 

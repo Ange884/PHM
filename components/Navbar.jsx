@@ -1,25 +1,25 @@
-// components/FixedNavigationBar.jsx
 import React, { useState } from "react";
 import {
   View,
   TouchableOpacity,
   Text,
   StyleSheet,
-  Dimensions,
+  Image,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-const { width } = Dimensions.get("window");
-
-export default function FixedNavigationBar({ navigation, activeRoute = "Home" }) {
-  const [hovered, setHovered] = useState(null);
+export default function FixedNavigationBar({
+  navigation,
+  activeRoute ="Home",
+}) {
+  const [pressed, setPressed] = useState(null);
 
   const navItems = [
-    { id: "DailyDevotions", label: "Devotions", icon: "book-outline" },
-    { id: "Discover", label: "Discover", icon: "compass-outline" },
-    { id: "Home", label: "Home", icon: "home-outline" },
-    { id: "BibleStudy", label: "Bible", icon: "library-outline" },
-    { id: "More", label: "More", icon: "menu-outline" },
+    { id: "Home", label: "Home", icon: require("../assets/images/Home.png") },
+    { id: "DailyDevotions", label: "Devotions", icon: require("../assets/images/Devotion.png") },
+    { id: "Discover", label: "Discover", icon: require("../assets/images/Discover.png") },
+    { id: "BibleStudy", label: "Bible", icon: require("../assets/images/biblestudy.png") },
+    { id: "More", label: "More", icon: require("../assets/images/More.png") },
   ];
 
   return (
@@ -27,33 +27,38 @@ export default function FixedNavigationBar({ navigation, activeRoute = "Home" })
       <View style={styles.navBar}>
         {navItems.map((item) => {
           const isActive = activeRoute === item.id;
-          const isHovered = hovered === item.id;
+          const isPressed = pressed === item.id;
 
           return (
             <TouchableOpacity
               key={item.id}
               style={styles.navButton}
               onPress={() => navigation.navigate(item.id)}
-              onPressIn={() => setHovered(item.id)}
-              onPressOut={() => setHovered(null)}
-              activeOpacity={0.7}
+              onPressIn={() => setPressed(item.id)}
+              onPressOut={() => setPressed(null)}
+              activeOpacity={0.8}
             >
-              <View style={[
-                styles.iconWrapper,
-                isActive && styles.iconWrapperActive,
-                isHovered && !isActive && styles.iconWrapperHovered
-              ]}>
-                <Ionicons
+              <View
+                style={[
+                  styles.iconWrapper,
+                  isActive && styles.iconWrapperActive,
+                  isPressed && !isActive && styles.iconWrapperPressed,
+                ]}
+              >
+                <Image source={item.icon} 
                   name={item.icon}
                   size={24}
-                  color={isActive ? "#fff" : isHovered ? "#fff" : "#8C4227"}
+                  color={isActive || isPressed ? "#fff" : "#8C4227"}
                 />
               </View>
-              <Text style={[
-                styles.label,
-                isActive && styles.labelActive,
-                isHovered && !isActive && styles.labelHovered
-              ]}>
+
+              <Text
+                style={[
+                  styles.label,
+                  isActive && styles.labelActive,
+                  isPressed && !isActive && styles.labelPressed,
+                ]}
+              >
                 {item.label}
               </Text>
             </TouchableOpacity>
@@ -63,7 +68,6 @@ export default function FixedNavigationBar({ navigation, activeRoute = "Home" })
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
@@ -77,47 +81,49 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: -2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 5,
+    elevation: 6,
   },
+
   navBar: {
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
     height: 70,
-    paddingHorizontal: 8,
   },
+
   navButton: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    flex: 1,
   },
+
   iconWrapper: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: "#f5f5f5", // Light gray background
+    width: 46,
+    height: 46,
+    borderRadius: 23,
+    backgroundColor: "#f3f3f3",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 4,
   },
-  iconWrapperHovered: {
-    backgroundColor: "#a0522d", // Darker brown on hover
-    transform: [{ scale: 1.1 }],
+
+  iconWrapperPressed: {
+    backgroundColor: "#a0522d",
+    transform: [{ scale: 1.05 }],
   },
-  iconWrapperActive: {
-    backgroundColor: "#8C4227", // Chocolate color when active
-  },
+
   label: {
     fontSize: 11,
-    fontFamily: "Lato_400Regular",
     color: "#666",
   },
-  labelHovered: {
-    color: "#8C4227",
-    fontWeight: "600",
-  },
+
   labelActive: {
     color: "#8C4227",
-    fontFamily: "Lato_700Bold",
+    fontWeight: "700",
+  },
+
+  labelPressed: {
+    color: "#8C4227",
+    fontWeight: "600",
   },
 });
