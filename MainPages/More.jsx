@@ -14,7 +14,7 @@ import FixedNavigationBar from "../components/Navbar.jsx";
 
 const { width } = Dimensions.get("window");
 
-export default function MoreScreen() {
+export default function MoreScreen({navigation}) {
   const [fontsLoaded] = useFonts({
     Lato_400Regular,
     Lato_700Bold,
@@ -42,7 +42,7 @@ export default function MoreScreen() {
         {/* OPTIONS */}
         <View style={styles.optionsContainer}>
           <OptionItem icon="bookmark-outline" label="Saved" />
-          <OptionItem icon="people-outline" label="Community Forums" />
+          <OptionItem icon="people-outline" label="Community Forums" onPress={() => navigation.navigate("Forums")} />
           <OptionItem icon="share-social-outline" label="Share PHM App" />
           <OptionItem icon="log-out-outline" label="Logout" danger />
         </View>
@@ -54,12 +54,13 @@ export default function MoreScreen() {
 }
 
 /* 🔹 Reusable Option Component */
-function OptionItem({ icon, label, danger }) {
+function OptionItem({ icon, label, danger, onPress }) {
   return (
     <TouchableOpacity
       style={[
         styles.optionButton,
       ]}
+      onPress={onPress}
       activeOpacity={0.75}
     >
       <Ionicons
