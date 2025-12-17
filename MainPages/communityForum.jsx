@@ -15,7 +15,7 @@ import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato
 
 const { width } = Dimensions.get("window");
 
-export default function CommunityForum() {
+export default function CommunityForum({navigation}) {
     const [fontsLoaded] = useFonts({
     Lato_400Regular,
     Lato_700Bold,
@@ -48,12 +48,12 @@ export default function CommunityForum() {
         {/* SEARCH BAR */}
         <TouchableOpacity style={styles.communitySearchbar} activeOpacity={0.8}>
           <Text style={styles.searchbarText}>Search Discussions...</Text>
-          <Ionicons name="search" size={20} color="#A0AEC0" />
+          <Ionicons name="search" size={20} color="#222" />
         </TouchableOpacity>
 
         {/* CATEGORIES */}
         <View style={styles.categories}>
-          <Text style={styles.category}>All Posts 156</Text>
+          <Text style={[styles.category, { backgroundColor: "#8C4227", color: "#fff" }]}>All Posts 156</Text>
           <Text style={styles.category}>Prayer 42</Text>
           <Text style={styles.category}>Bible Study 38</Text>
           <Text style={styles.category}>Support</Text>
@@ -111,7 +111,9 @@ export default function CommunityForum() {
 })}
 
         {/* NEW DISCUSSION BUTTON */}
-        <TouchableOpacity style={styles.newDiscussionButton}>
+        <TouchableOpacity style={styles.newDiscussionButton}
+          onPress={() => navigation.navigate("PostDiscussion")}
+        >
           <Text style={styles.newDiscussionText}>New Discussion</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -145,7 +147,7 @@ const styles = StyleSheet.create({
   },
 
   searchbarText: {
-    color: "#A0AEC0",
+    color: "#222",
     fontFamily: "Lato_400Regular",
     fontSize: 15,
   },
@@ -166,7 +168,7 @@ const styles = StyleSheet.create({
     width:"23%",
     textAlign:"center",
     textAlignVertical:"center",
-    fontFamily: "Lato_400Regular",
+    fontFamily: "Lato_700Bold",
   },
 
   indicatorHeaders: {
@@ -182,7 +184,9 @@ const styles = StyleSheet.create({
   },
 
   indicatorText: {
-    color: "#718096"
+    color: "#000",
+    fontSize: 16,
+    fontFamily: "Lato_400Regular",
   },
 
   postCard: {
@@ -209,13 +213,13 @@ const styles = StyleSheet.create({
   username: {
     fontWeight: "700",
     fontFamily: "Lato_700Bold",
-    fontSize: 14,
+    fontSize: 16,
     marginBottom: 2
   },
 
   time: {
     fontSize: 12,
-    color: "#A0AEC0",
+    color: "#555",
     fontFamily: "Lato_400Regular",
   },
 
@@ -227,9 +231,10 @@ const styles = StyleSheet.create({
   },
 
   postMessage: {
-    color: "#4A5568",
+    color: "#222",
     marginBottom: 10,
     fontFamily: "Lato_400Regular",
+    fontSize: 14,
   },
 
   hashtags: {
@@ -242,8 +247,8 @@ const styles = StyleSheet.create({
 
   tag: {
     color: "#8C4227",
-    fontSize: 12,
-    fontFamily: "Lato_400Regular",
+    fontSize: 14,
+    fontFamily: "Lato_700Bold",
   },
 
   postActions: {
@@ -265,23 +270,24 @@ const styles = StyleSheet.create({
   },
 
   supportButton: {
-    backgroundColor: "#8C4227",
+    backgroundColor: "#97783E",
     paddingHorizontal: 14,
     paddingVertical: 6,
-    borderRadius: 20
+    borderRadius: 5,
+    textAlignVertical: "center",
+    textAlign: "center",
   },
 
   supportButtonText: {
     color: "#fff",
     fontSize: 16,
-    fontWeight: "600",
     fontFamily: "Lato_700Bold",
   },
 
   newDiscussionButton: {
-    backgroundColor: "#2D3748",
+    backgroundColor: "#8C4227",
     padding: 16,
-    borderRadius: 30,
+    borderRadius: 6,
     alignItems: "center",
     marginTop: 10
   },
