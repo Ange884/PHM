@@ -21,6 +21,7 @@ import ContactUsScreen from "../MainPages/ContactUs.jsx";
 import DailyDevotionScreen from "../MainPages/DailyDevotion.jsx";
 import CommunityForum from "../MainPages/communityForum.jsx";
 import PostDiscussionScreen from "../MainPages/PostDiscussion.jsx";
+import BibleStudies from "../MainPages/BibleStudies.jsx";
 
 const Stack = createNativeStackNavigator();
 
@@ -55,6 +56,7 @@ export default function AppNavigator() {
          <Stack.Screen name="DailyDevotion" component={DailyDevotionScreen} />
           <Stack.Screen name="CommunityForum" component={CommunityForum} />
           <Stack.Screen name="PostDiscussion" component={PostDiscussionScreen} />
+          <Stack.Screen name="BibleStudies" component={BibleStudies} />
       </Stack.Navigator>
 
   );

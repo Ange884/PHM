@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Image,
 } from "react-native";
 import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import FixedNavigationBar from "../components/Navbar.jsx";
@@ -35,12 +36,30 @@ export default function BibleStudies({ navigation }) {
   if (!fontsLoaded) return null;
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#f8f5f0" }}>
+    <View style={{ flex: 1, backgroundColor: "#fff" }}>
       <ScrollView
         contentContainerStyle={styles.container}
         showsVerticalScrollIndicator={false}
       >
+        {/* Header with language selector */}
+        <View style={styles.topBar}>
+          <TouchableOpacity style={styles.iconButton}
+           onPress={()=>navigation.navigate("DailyDevotion")}
+          >
+            <Ionicons name="arrow-back" size={24} color={"#000"} style={styles.backIcon} />
+          </TouchableOpacity>
+          
+          <View style={styles.languageSelector}>
+            <TouchableOpacity style={styles.languageButton}>
+              <Ionicons name="language" size={24} color="#4a5568" />
+              <Text style={styles.languageText}>EN</Text>
+              <Ionicons name="chevron-down" size={16} color="#4a5568" />
+            </TouchableOpacity>
+          </View>
+        </View>
+
         {/* HEADERS */}
+        <View style={{ paddingHorizontal: 22 }}>
         <View style={styles.headers}>
           <Text style={styles.diffHeader}>Current Study</Text>
           <Text style={styles.header}>Past Studies</Text>
@@ -80,6 +99,7 @@ export default function BibleStudies({ navigation }) {
             </View>
           </TouchableOpacity>
         ))}
+        </View>
       </ScrollView>
 
       <FixedNavigationBar />
@@ -89,9 +109,56 @@ export default function BibleStudies({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 22,
+    padding: 0,
     paddingBottom: 110,
   },
+
+  topBar: {
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "space-between",
+  paddingHorizontal: 20,
+  paddingVertical: 14,
+  backgroundColor: "#f8f5f0",
+  marginBottom: 20,
+  borderBottomColor: "#e2e8f0",
+  borderBottomWidth: 1,
+},
+
+iconButton: {
+  width: 44,
+  height: 44,
+  borderRadius: 22,
+  backgroundColor: "#ffffff",
+  alignItems: "center",
+  justifyContent: "center",
+  elevation: 3,
+},
+
+backIcon: {
+  marginLeft: -2, // slight optical alignment
+},
+
+languageSelector: {
+  backgroundColor: "#ffffff",
+  borderRadius: 22,
+  elevation: 3,
+},
+
+languageButton: {
+  flexDirection: "row",
+  alignItems: "center",
+  paddingHorizontal: 14,
+  paddingVertical: 8,
+  gap: 6,
+},
+
+languageText: {
+  fontSize: 16,
+  fontFamily: "Lato_700Bold",
+  color: "#333",
+},
+
 
   headers: {
     flexDirection: "row",
@@ -100,15 +167,17 @@ const styles = StyleSheet.create({
   },
 
   diffHeader: {
-    fontSize: 22,
+    fontSize: 20,
     fontFamily: "Lato_700Bold",
     color: "#8C4227",
+    textDecorationStyle: "underline",
+    textDecorationLine: "underline",
   },
 
   header: {
     fontSize: 20,
     fontFamily: "Lato_400Regular",
-    color: "#888",
+    color: "#222",
   },
 
   topicCard: {
@@ -143,7 +212,7 @@ const styles = StyleSheet.create({
   subHead: {
     fontSize: 16,
     fontFamily: "Lato_400Regular",
-    color: "#666",
+    color: "#222",
     marginTop: 4,
   },
 

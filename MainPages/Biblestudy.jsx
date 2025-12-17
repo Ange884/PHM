@@ -14,7 +14,7 @@ import FixedNavigationBar from "../components/Navbar.jsx";
 
 const { width } = Dimensions.get("window");
 
-export default function BibleStudyScreen() {
+export default function BibleStudyScreen({navigation}) {
   const [openIndex, setOpenIndex] = useState(null);
   const [answers, setAnswers] = useState({});
 
@@ -91,6 +91,8 @@ export default function BibleStudyScreen() {
                     style={Styles.saveBtn}
                     onPress={() => {
                       console.log("Saved Answer:", answers[index]);
+                      navigation.navigate("BibleStudies");
+                      
                       setOpenIndex(null);
                     }}
                   >
