@@ -10,10 +10,18 @@ import {
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import FixedNavigationBar from "../components/Navbar.jsx";
+import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
+
 
 const { width } = Dimensions.get("window");
 
 export default function CommunityForum() {
+    const [fontsLoaded] = useFonts({
+    Lato_400Regular,
+    Lato_700Bold,
+  });
+
+  if (!fontsLoaded) return <></>;
   const supportContents = [
     {
       id: 1,
@@ -45,7 +53,7 @@ export default function CommunityForum() {
 
         {/* CATEGORIES */}
         <View style={styles.categories}>
-          <Text style={styles.category}>All Posts</Text>
+          <Text style={styles.category}>All Posts 156</Text>
           <Text style={styles.category}>Prayer 42</Text>
           <Text style={styles.category}>Bible Study 38</Text>
           <Text style={styles.category}>Support</Text>
@@ -59,48 +67,48 @@ export default function CommunityForum() {
         </View>
 
         {/* POSTS */}
-        {supportContents.map((item) => (
-          <View key={item.id} style={styles.postCard}>
-            <View style={styles.postHeader}>
-              <View style={styles.avatar} />
-              <View>
-                <Text style={styles.username}>{item.name}</Text>
-                <Text style={styles.time}>{item.time}</Text>
-              </View>
-            </View>
+        {Array(3).fill(null).map((_, index) => {
+  const item = supportContents[0];
 
-            <Text style={styles.postTitle}>{item.title}</Text>
-            <Text style={styles.postMessage}>{item.message}</Text>
+  return (
+    <View key={index} style={styles.postCard}>
+      <View style={styles.postHeader}>
+        <View style={styles.avatar} />
+        <View>
+          <Text style={styles.username}>{item.name}</Text>
+          <Text style={styles.time}>{item.time}</Text>
+        </View>
+      </View>
 
-            <View style={styles.hashtags}>
-              {item.hashtags.map((tag, index) => (
-                <Text key={index} style={styles.tag}>
-                  {tag}
-                </Text>
-              ))}
-            </View>
+      <Text style={styles.postTitle}>{item.title}</Text>
+      <Text style={styles.postMessage}>{item.message}</Text>
 
-            <View style={styles.postActions}>
-              <View style={styles.actionItem}>
-                <Ionicons name="heart-outline" size={20} color="#4A5568" />
-                <Text style={styles.actionText}>{item.likes}</Text>
-              </View>
-
-              <View style={styles.actionItem}>
-                <Ionicons
-                  name="chatbubble-outline"
-                  size={20}
-                  color="#4A5568"
-                />
-                <Text style={styles.actionText}>{item.comments}</Text>
-              </View>
-
-              <TouchableOpacity style={styles.supportButton}>
-                <Text style={styles.supportButtonText}>Support</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
+      <View style={styles.hashtags}>
+        {item.hashtags.map((tag, tagIndex) => (
+          <Text key={tagIndex} style={styles.tag}>
+            {tag}
+          </Text>
         ))}
+      </View>
+
+      <View style={styles.postActions}>
+        <View style={styles.actionItem}>
+          <Ionicons name="heart-outline" size={20} color="#4A5568" />
+          <Text style={styles.actionText}>{item.likes}</Text>
+        </View>
+
+        <View style={styles.actionItem}>
+          <Ionicons name="chatbubble-outline" size={20} color="#4A5568" />
+          <Text style={styles.actionText}>{item.comments}</Text>
+        </View>
+
+        <TouchableOpacity style={styles.supportButton}>
+          <Text style={styles.supportButtonText}>Support</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+})}
 
         {/* NEW DISCUSSION BUTTON */}
         <TouchableOpacity style={styles.newDiscussionButton}>
@@ -122,7 +130,8 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: "700",
     marginVertical: 20,
-    color: "#2D3748"
+    color: "#2D3748",
+    fontFamily: "Lato_700Bold"
   },
 
   communitySearchbar: {
@@ -136,22 +145,28 @@ const styles = StyleSheet.create({
   },
 
   searchbarText: {
-    color: "#A0AEC0"
+    color: "#A0AEC0",
+    fontFamily: "Lato_400Regular",
+    fontSize: 15,
   },
 
   categories: {
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 12,
-    marginBottom: 20
+    marginBottom: 20,
+    gap:7,
   },
 
   category: {
     backgroundColor: "#EDE6DA",
     paddingHorizontal: 14,
-    paddingVertical: 6,
-    borderRadius: 20,
-    fontSize: 13
+    paddingVertical: 8,
+    borderRadius: 4,
+    fontSize: 13,
+    width:"23%",
+    textAlign:"center",
+    textAlignVertical:"center",
+    fontFamily: "Lato_400Regular",
   },
 
   indicatorHeaders: {
@@ -162,7 +177,8 @@ const styles = StyleSheet.create({
 
   indicatorActive: {
     fontWeight: "700",
-    color: "#8C4227"
+    color: "#8C4227",
+    fontFamily: "Lato_700Bold",
   },
 
   indicatorText: {
@@ -191,35 +207,43 @@ const styles = StyleSheet.create({
   },
 
   username: {
-    fontWeight: "700"
+    fontWeight: "700",
+    fontFamily: "Lato_700Bold",
+    fontSize: 14,
+    marginBottom: 2
   },
 
   time: {
     fontSize: 12,
-    color: "#A0AEC0"
+    color: "#A0AEC0",
+    fontFamily: "Lato_400Regular",
   },
 
   postTitle: {
     fontSize: 16,
     fontWeight: "700",
-    marginBottom: 6
+    marginBottom: 6,
+    fontFamily: "Lato_700Bold",
   },
 
   postMessage: {
     color: "#4A5568",
-    marginBottom: 10
+    marginBottom: 10,
+    fontFamily: "Lato_400Regular",
   },
 
   hashtags: {
     flexDirection: "row",
     flexWrap: "wrap",
     gap: 8,
-    marginBottom: 12
+    marginBottom: 12,
+
   },
 
   tag: {
     color: "#8C4227",
-    fontSize: 12
+    fontSize: 12,
+    fontFamily: "Lato_400Regular",
   },
 
   postActions: {
@@ -236,7 +260,8 @@ const styles = StyleSheet.create({
 
   actionText: {
     fontSize: 13,
-    color: "#4A5568"
+    color: "#4A5568",
+    fontFamily: "Lato_400Regular",
   },
 
   supportButton: {
@@ -248,8 +273,9 @@ const styles = StyleSheet.create({
 
   supportButtonText: {
     color: "#fff",
-    fontSize: 12,
-    fontWeight: "600"
+    fontSize: 16,
+    fontWeight: "600",
+    fontFamily: "Lato_700Bold",
   },
 
   newDiscussionButton: {
@@ -262,6 +288,8 @@ const styles = StyleSheet.create({
 
   newDiscussionText: {
     color: "#fff",
-    fontWeight: "700"
+    fontWeight: "700",
+    fontSize: 16,
+    fontFamily: "Lato_700Bold",
   }
 });

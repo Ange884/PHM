@@ -29,7 +29,7 @@ export default function HomeScreen({ navigation }) {
       title1: "Community",
       title2: "Join Discussions",
       buttonText: "Browse Forums",
-      screen: "DailyDevotions", // Updated screen name
+      screen: "CommunityForum", // Updated screen name
     },
     {
       icon: "help-circle-outline",
