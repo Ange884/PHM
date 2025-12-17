@@ -26,21 +26,21 @@ export default function HomeScreen({ navigation }) {
     },
     {
       icon: "people-outline",
-      title1: "Devotional",
-      title2: "Daily Devotion Tips",
+      title1: "Community",
+      title2: "Join Discussions",
       buttonText: "Browse Forums",
       screen: "DailyDevotions", // Updated screen name
     },
     {
       icon: "help-circle-outline",
-      title1: "Bible Study",
+      title1: "FAQs",
       title2: "Grow in Faith",
       buttonText: "View FAQs",
       screen: "FAQs", // Updated screen name
     },
     {
       icon: "mail-outline",
-      title1: "Podcast",
+      title1: "Contact",
       title2: "Listen to Sermons",
       buttonText: "Contact Us",
       screen: "ContactUs", // Updated screen name

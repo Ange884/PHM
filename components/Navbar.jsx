@@ -15,7 +15,7 @@ export default function FixedNavigationBar({
   const [pressed, setPressed] = useState(null);
 
   const navItems = [
-    { id: "Home", label: "Home", icon: require("../assets/images/Home.png") },
+    { id: "home", label: "Home", icon: require("../assets/images/Home.png") },
     { id: "DailyDevotions", label: "Devotions", icon: require("../assets/images/Devotion.png") },
     { id: "Discover", label: "Discover", icon: require("../assets/images/Discover.png") },
     { id: "BibleStudy", label: "Bible", icon: require("../assets/images/biblestudy.png") },
