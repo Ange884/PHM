@@ -179,11 +179,13 @@ const styles = StyleSheet.create({
 
   cancelButton: {
     flex: 1,
-    backgroundColor: "#EDF2F7",
+    backgroundColor: "#fff",
     paddingVertical: 14,
-    borderRadius: 30,
+    borderRadius: 5,
     alignItems: "center",
-    marginRight: 10
+    marginRight: 10,
+    borderWidth:1,
+    borderColor:"#999",
   },
 
   cancelText: {
@@ -196,7 +198,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#8C4227",
     paddingVertical: 14,
-    borderRadius: 30,
+    borderRadius: 5,
     alignItems: "center",
     marginLeft: 10
   },
