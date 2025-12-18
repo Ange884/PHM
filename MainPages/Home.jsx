@@ -1,9 +1,9 @@
 // MainPages/Home.jsx
+import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Video } from "expo-av";
 import React from "react";
 import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Video } from "expo-av";
-import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import FixedNavigationBar from "../components/Navbar.jsx";
 
 const { width } = Dimensions.get("window");
@@ -73,7 +73,9 @@ export default function HomeScreen({ navigation }) {
 
         {/* Text Content */}
         <View style={styles.textContent}>
-          <Text style={styles.mainText}>Prepare your heart to <br />meet with God</Text>
+          <Text style={styles.mainText}>
+            Prepare your heart to {"\n"}meet with God
+          </Text>
           <Text style={styles.subText}>By Pastor James Muyango</Text>
           <View style={styles.iconRow}>
             <Ionicons name="book-outline" size={20} color="#555" />

@@ -1,24 +1,40 @@
+import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useState } from "react";
 import {
-  View,
-  TouchableOpacity,
-  Text,
-  StyleSheet,
   Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 
 export default function FixedNavigationBar({
-  navigation,
-  activeRoute ="Home",
+  navigation: navigationProp,
+  activeRoute,
 }) {
   const [pressed, setPressed] = useState(null);
 
+  const navigation = navigationProp || useNavigation();
+  const route = useRoute();
+  const currentRoute = activeRoute || route.name;
+
   const navItems = [
     { id: "home", label: "Home", icon: require("../assets/images/Home.png") },
-    { id: "DailyDevotions", label: "Devotions", icon: require("../assets/images/Devotion.png") },
-    { id: "Discover", label: "Discover", icon: require("../assets/images/Discover.png") },
-    { id: "BibleStudy", label: "Bible", icon: require("../assets/images/biblestudy.png") },
+    {
+      id: "DailyDevotions",
+      label: "Devotions",
+      icon: require("../assets/images/Devotion.png"),
+    },
+    {
+      id: "Discover",
+      label: "Discover",
+      icon: require("../assets/images/Discover.png"),
+    },
+    {
+      id: "BibleStudy",
+      label: "Bible",
+      icon: require("../assets/images/biblestudy.png"),
+    },
     { id: "More", label: "More", icon: require("../assets/images/More.png") },
   ];
 
@@ -26,7 +42,7 @@ export default function FixedNavigationBar({
     <View style={styles.container}>
       <View style={styles.navBar}>
         {navItems.map((item) => {
-          const isActive = activeRoute === item.id;
+          const isActive = currentRoute === item.id;
           const isPressed = pressed === item.id;
 
           return (
@@ -45,10 +61,12 @@ export default function FixedNavigationBar({
                   isPressed && !isActive && styles.iconWrapperPressed,
                 ]}
               >
-                <Image source={item.icon} 
-                  name={item.icon}
-                  size={24}
-                  color={isActive || isPressed ? "#fff" : "#8C4227"}
+                <Image
+                  source={item.icon}
+                  style={[
+                    styles.iconImage,
+                    (isActive || isPressed) && styles.iconImageActive,
+                  ]}
                 />
               </View>
 
@@ -105,6 +123,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 2,
+  },
+
+  iconImage: {
+    width: 24,
+    height: 24,
+    tintColor: "#8C4227",
+    resizeMode: "contain",
+  },
+
+  iconImageActive: {
+    tintColor: "#ffffff",
+  },
+
+  iconWrapperActive: {
+    backgroundColor: "#8C4227",
   },
 
   iconWrapperPressed: {
