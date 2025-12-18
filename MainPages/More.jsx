@@ -29,6 +29,9 @@ export default function MoreScreen({navigation}) {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 100 }}
       >
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons name="arrow-back" size={26} color="#333" style={{marginTop: 20}}/>
+          </TouchableOpacity>
         {/* PROFILE HEADER */}
         <View style={styles.profileCard}>
           <Image
@@ -41,7 +44,7 @@ export default function MoreScreen({navigation}) {
 
         {/* OPTIONS */}
         <View style={styles.optionsContainer}>
-          <OptionItem icon="bookmark-outline" label="Saved" />
+          <OptionItem icon="bookmark-outline" label="Saved" onPress={() => navigation.navigate("Saved")}/>
           <OptionItem icon="people-outline" label="Community Forums" onPress={() => navigation.navigate("Forums")} />
           <OptionItem icon="share-social-outline" label="Share PHM App" />
           <OptionItem icon="log-out-outline" label="Logout" danger />

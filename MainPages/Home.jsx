@@ -55,7 +55,12 @@ export default function HomeScreen({ navigation }) {
 
       >
       {/* Header */}
+      <View>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons name="arrow-back" size={26} color="#333" style={{marginTop: 20}}/>
+          </TouchableOpacity>
       <Text style={styles.header}>Your Daily Devotion</Text>
+      </View>
 
       <View style={styles.devotionSection}>
         {/* Video */}

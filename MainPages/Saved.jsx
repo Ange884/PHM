@@ -147,13 +147,13 @@ const styles = StyleSheet.create({
   cardDate: {
     fontSize: 14,
     fontFamily: "Lato_400Regular",
-    color: "#888",
+    color: "#111",
   },
 
   cardTitle: {
     fontSize: 20,
     fontFamily: "Lato_700Bold",
-    color: "#2d2d2d",
+    color: "#111",
     marginBottom: 4,
   },
 
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
   cardDescription: {
     fontSize: 15,
     fontFamily: "Lato_400Regular",
-    color: "#555",
+    color: "#111",
     lineHeight: 22,
   },
 });
