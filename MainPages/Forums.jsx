@@ -27,24 +27,29 @@ export default function ForumsScreen({ navigation }) {
       </View>
 
       {/* CONTENT */}
-      <View style={styles.contentBox}>
-        <Text style={styles.paragraphHeader}>
-          Welcome to the Community Forums
-        </Text>
+    <View style={styles.contentBox}>
+  {/* CENTERED TEXT */}
+  <View style={styles.centerContent}>
+    <Text style={styles.paragraphHeader}>
+      Welcome to the Community Forums!
+    </Text>
 
-        <Text style={styles.paragraphText}>
-          This is a safe space to share, learn, and grow together in faith.
-          Start a discussion, ask questions, and encourage one another.
-        </Text>
+    <Text style={styles.paragraphText}>
+      This is a safe space to share, learn, and grow together in faith.
+      Start a discussion, ask questions, and encourage one another.
+    </Text>
+  </View>
 
-        <TouchableOpacity
-          style={styles.button}
-          activeOpacity={0.8}
-          onPress={() => navigation.navigate("CreateForumPost")}
-        >
-          <Text style={styles.buttonText}>＋ New Discussion</Text>
-        </TouchableOpacity>
-      </View>
+  {/* BOTTOM BUTTON */}
+  <TouchableOpacity
+    style={styles.button}
+    activeOpacity={0.8}
+    onPress={() => navigation.navigate("CreateForumPost")}
+  >
+    <Text style={styles.buttonText}>＋ New Discussion</Text>
+  </TouchableOpacity>
+</View>
+
     </View>
   );
 }
@@ -52,7 +57,7 @@ export default function ForumsScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f8f5f0",
+    backgroundColor: "#fff",
     padding: 24,
   },
 
@@ -69,25 +74,31 @@ const styles = StyleSheet.create({
     color: "#222",
   },
 
-  contentBox: {
-    backgroundColor: "#ffffff",
-    borderRadius: 20,
-    padding: 24,
-    elevation: 3,
-  },
+ contentBox: {
+  flex: 1,
+  backgroundColor: "#ffffff",
+  borderRadius: 20,
+  padding: 24,
+  elevation: 3,
+},
+
+centerContent: {
+  flex: 1,
+  justifyContent: "center", // vertical center
+},
 
   paragraphHeader: {
-    fontSize: 22,
+    fontSize: 17,
     fontFamily: "Lato_700Bold",
-    color: "#8C4227",
+    color: "#000",
     marginBottom: 12,
   },
 
   paragraphText: {
-    fontSize: 17,
+    fontSize: 16,
     fontFamily: "Lato_400Regular",
-    color: "#555",
-    lineHeight: 26,
+    color: "#222",
+    lineHeight: 20,
     marginBottom: 30,
   },
 
