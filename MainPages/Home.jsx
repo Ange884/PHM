@@ -55,9 +55,9 @@ export default function HomeScreen({ navigation }) {
 
       >
       {/* Header */}
-      <View>
+      <View style={styles.NavButtons}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back" size={26} color="#333" style={{marginTop: 20}}/>
+            <Ionicons name="arrow-back" size={26} color="#333"/>
           </TouchableOpacity>
       <Text style={styles.header}>Your Daily Devotion</Text>
       </View>
@@ -131,6 +131,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#8C4227",
     fontFamily: "Lato_400Regular",
+  },
+   NavButtons: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 14,
+    marginBottom: 20,
   },
 
   container: {

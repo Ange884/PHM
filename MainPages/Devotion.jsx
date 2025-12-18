@@ -25,23 +25,32 @@ export default function DevotionScreen({ navigation }) {
       >
         {/* Header with language selector */}
         <View style={styles.topBar}>
-          <TouchableOpacity style={styles.iconButton}
-           onPress={()=>navigation.navigate("DailyDevotion")}
-          >
-            <Image 
-              source={require("../assets/images/extensions.png")} // Update path as needed
-              style={styles.logo}
-            />
-          </TouchableOpacity>
-          
-          <View style={styles.languageSelector}>
-            <TouchableOpacity style={styles.languageButton}>
-              <Ionicons name="language" size={24} color="#4a5568" />
-              <Text style={styles.languageText}>EN</Text>
-              <Ionicons name="chevron-down" size={16} color="#4a5568" />
-            </TouchableOpacity>
-          </View>
-        </View>
+  <TouchableOpacity
+    style={styles.backButton}
+    onPress={() => navigation.goBack()}
+  >
+    <Ionicons name="arrow-back" size={26} color="#333" />
+  </TouchableOpacity>
+
+  <TouchableOpacity
+    style={styles.iconButton}
+    onPress={() => navigation.navigate("DailyDevotion")}
+  >
+    <Image
+      source={require("../assets/images/extensions.png")}
+      style={styles.logo}
+    />
+  </TouchableOpacity>
+
+  <View style={styles.languageSelector}>
+    <TouchableOpacity style={styles.languageButton}>
+      <Ionicons name="language" size={24} color="#4a5568" />
+      <Text style={styles.languageText}>EN</Text>
+      <Ionicons name="chevron-down" size={16} color="#4a5568" />
+    </TouchableOpacity>
+  </View>
+</View>
+
 
         {/* Main Content */}
         <View style={styles.contentContainer}>
@@ -100,11 +109,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
   },
+  backButton: {
+  padding: 8,               // ✅ better alignment & tap area
+},
+
   topBar: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    flexWrap: "nowrap",
+    flex:1,
     alignItems: "center",
-    paddingHorizontal: 20,
+    marginRight:10,
     paddingTop: 50,
     paddingBottom: 20,
     backgroundColor: "#F7F7F7",
