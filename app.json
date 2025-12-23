@@ -14,9 +14,9 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/welcome.png",
-        "backgroundImage": "./assets/images/welcome.png",
-        "monochromeImage": "./assets/images/welcome.png"
+        "foregroundImage": "./assets/images/splash-icon.png",
+        "backgroundImage": "./assets/images/splash-icon.png",
+        "monochromeImage": "./assets/images/splash-icon.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
