@@ -2,17 +2,14 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import {
   Dimensions,
+  Image,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
-  Image
+  View
 } from "react-native";
-import { Video } from "expo-av";
-import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import FixedNavigationBar from "../components/Navbar.jsx";
-import {DancingScript_400Regular,DancingScript_500Medium,DancingScript_600SemiBold,useFonts as useFontsHandwriting} from "@expo-google-fonts/dancing-script";
 
 const { width } = Dimensions.get("window");
 
@@ -25,31 +22,24 @@ export default function DevotionScreen({ navigation }) {
       >
         {/* Header with language selector */}
         <View style={styles.topBar}>
-  <TouchableOpacity
-    style={styles.backButton}
-    onPress={() => navigation.goBack()}
-  >
-    <Ionicons name="arrow-back" size={26} color="#333" />
-  </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.iconButton}
+            onPress={() => navigation.navigate("DailyDevotion")}
+          >
+            <Image
+              source={require("../assets/images/extensions.png")}
+              style={styles.logo}
+            />
+          </TouchableOpacity>
 
-  <TouchableOpacity
-    style={styles.iconButton}
-    onPress={() => navigation.navigate("DailyDevotion")}
-  >
-    <Image
-      source={require("../assets/images/extensions.png")}
-      style={styles.logo}
-    />
-  </TouchableOpacity>
-
-  <View style={styles.languageSelector}>
-    <TouchableOpacity style={styles.languageButton}>
-      <Ionicons name="language" size={24} color="#4a5568" />
-      <Text style={styles.languageText}>EN</Text>
-      <Ionicons name="chevron-down" size={16} color="#4a5568" />
-    </TouchableOpacity>
-  </View>
-</View>
+          <View style={styles.languageSelector}>
+            <TouchableOpacity style={styles.languageButton}>
+              <Ionicons name="language" size={24} color="#4a5568" />
+              <Text style={styles.languageText}>EN</Text>
+              <Ionicons name="chevron-down" size={16} color="#4a5568" />
+            </TouchableOpacity>
+          </View>
+        </View>
 
 
         {/* Main Content */}

@@ -1,15 +1,15 @@
+import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import {
   Dimensions,
   ScrollView,
   StyleSheet,
   Text,
+  TextInput,
   TouchableOpacity,
   View,
-  TextInput,
 } from "react-native";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 
 const { width } = Dimensions.get("window");
 
@@ -41,9 +41,6 @@ export default function SavedScreen({ navigation }) {
       >
         {/* HEADER */}
         <View style={styles.SavedContent}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back" size={26} color="#333" />
-          </TouchableOpacity>
           <Text style={styles.SavedHeader}>Saved</Text>
         </View>
 

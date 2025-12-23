@@ -1,15 +1,15 @@
+import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import {
   Dimensions,
+  Image,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Image,
 } from "react-native";
-import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import FixedNavigationBar from "../components/Navbar.jsx";
 
 const { width } = Dimensions.get("window");
@@ -29,9 +29,6 @@ export default function MoreScreen({navigation}) {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 100 }}
       >
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back" size={26} color="#333" style={{marginTop: 20}}/>
-          </TouchableOpacity>
         {/* PROFILE HEADER */}
         <View style={styles.profileCard}>
           <Image

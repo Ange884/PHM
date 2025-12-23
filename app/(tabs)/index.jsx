@@ -30,7 +30,11 @@ export default function AppNavigator() {
     
       <Stack.Navigator
         screenOptions={{
-          headerShown: false,
+          headerShown: true,
+          headerBackTitleVisible: false,
+          headerTitleAlign: "center",
+          headerTintColor: "#333",
+          headerStyle: { backgroundColor: "#fff" },
           gestureEnabled: true,
         }}
       >

@@ -1,3 +1,4 @@
+import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
 import {
@@ -6,10 +7,8 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
-  Image,
+  View
 } from "react-native";
-import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import FixedNavigationBar from "../components/Navbar.jsx";
 
 const { width } = Dimensions.get("window");
@@ -43,12 +42,6 @@ export default function BibleStudies({ navigation }) {
       >
         {/* Header with language selector */}
         <View style={styles.topBar}>
-          <TouchableOpacity style={styles.iconButton}
-           onPress={()=>navigation.navigate("DailyDevotion")}
-          >
-            <Ionicons name="arrow-back" size={24} color={"#000"} style={styles.backIcon} />
-          </TouchableOpacity>
-          
           <View style={styles.languageSelector}>
             <TouchableOpacity style={styles.languageButton}>
               <Ionicons name="language" size={24} color="#4a5568" />

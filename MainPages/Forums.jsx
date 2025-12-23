@@ -1,4 +1,4 @@
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import React from "react";
 import {
   StyleSheet,
@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 
 export default function ForumsScreen({ navigation }) {
   const [fontsLoaded] = useFonts({
@@ -20,9 +19,6 @@ export default function ForumsScreen({ navigation }) {
     <View style={styles.container}>
       {/* HEADER */}
       <View style={styles.headerRow}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={26} color="#333" />
-        </TouchableOpacity>
         <Text style={styles.headerTitle}>Community Forums</Text>
       </View>
 
