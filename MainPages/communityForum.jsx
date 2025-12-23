@@ -6,7 +6,8 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Image
+  Image,
+  TextInput,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import FixedNavigationBar from "../components/Navbar.jsx";
@@ -46,10 +47,16 @@ export default function CommunityForum({navigation}) {
         <Text style={styles.pageTitle}>Community Forums</Text>
 
         {/* SEARCH BAR */}
-        <TouchableOpacity style={styles.communitySearchbar} activeOpacity={0.8}>
-          <Text style={styles.searchbarText}>Search Discussions...</Text>
-          <Ionicons name="search" size={20} color="#222" />
-        </TouchableOpacity>
+        <View style={styles.discoverSearchbar}>
+  <TextInput
+    style={styles.searchInput}
+    placeholder="Search Devotions, Plans, Topics..."
+    placeholderTextColor="#A0AEC0"
+  />
+  <TouchableOpacity>
+  <Ionicons name="search" size={20} color="#A0AEC0" />
+  </TouchableOpacity>
+</View>
 
         {/* CATEGORIES */}
         <View style={styles.categories}>
@@ -145,6 +152,27 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 20
   },
+   discoverSearchbar: {
+  flexDirection: "row",
+  alignItems: "center",
+  backgroundColor: "#fff",
+  borderRadius: 12,
+  paddingHorizontal: 15,
+  paddingVertical: 12,
+  marginBottom: 20,
+
+  shadowColor: "#000",
+  shadowOpacity: 0.05,
+  shadowRadius: 3,
+  elevation: 2,
+},
+
+searchInput: {
+  flex: 1,
+  fontSize: 16,
+  fontFamily: "Lato_400Regular",
+  color: "#333",
+},
 
   searchbarText: {
     color: "#222",

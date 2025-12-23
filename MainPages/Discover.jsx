@@ -1,5 +1,5 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
-import React from "react";
+import React, {useState,useRef} from "react";
 import {
   Dimensions,
   ScrollView,
@@ -12,10 +12,22 @@ import {
 import { Video } from "expo-av";
 import { Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato";
 import FixedNavigationBar from "../components/Navbar.jsx";
+import { useFonts } from "@expo-google-fonts/lato";
 
 const { width } = Dimensions.get("window");
 
 export default function DiscoverScreen() {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const [fontsLoaded] = useFonts({
+  Lato_400Regular,
+  Lato_700Bold,
+});
+
+if (!fontsLoaded) return null;
+
+
   return (
     <View style={styles.screen}>
       <ScrollView
@@ -68,13 +80,40 @@ export default function DiscoverScreen() {
 
         {/* VIDEO CARD */}
         <View style={styles.videoCard}>
-          <Video
-            style={styles.video}
-            source={require("../assets/images/wanderlyn.mp4")}
-            resizeMode="cover"
-            shouldPlay
-            useNativeControls={true}
-          />
+          <View style={styles.videoWrapper}>
+            <Video
+              ref={videoRef}
+              style={styles.video}
+              source={require("../assets/images/song.mp4")}
+              resizeMode="contain"
+              shouldPlay={isPlaying}
+              useNativeControls={false}
+              onPlaybackStatusUpdate={(status) => {
+                if (!status.isLoaded) return;
+                setIsPlaying(status.isPlaying);
+              }}
+            />
+
+            <TouchableOpacity
+              style={styles.playPauseBtn}
+              onPress={async () => {
+                const status = await videoRef.current.getStatusAsync();
+                if (!status.isLoaded) return;
+
+                if (status.isPlaying) {
+                  await videoRef.current.pauseAsync();
+                } else {
+                  await videoRef.current.playAsync();
+                }
+              }}
+            >
+              <Ionicons
+                name={isPlaying ? "pause" : "play"}
+                size={28}
+                color="#fff"
+              />
+            </TouchableOpacity>
+          </View>
         </View>
 
         {/* RECOMMENDED */}
@@ -82,7 +121,7 @@ export default function DiscoverScreen() {
         <Text style={styles.subheader}>Psalms 118:1–12</Text>
       </ScrollView>
 
-      <FixedNavigationBar />
+      <FixedNavigationBar  navigation={navigation}/>
     </View>
   );
 }
@@ -184,11 +223,7 @@ searchInput: {
     elevation: 4,
   },
 
-  video: {
-    width: "100%",
-    height: width * 0.55,
-  },
-
+  
   /* RECOMMENDED */
   subheader: {
     fontSize: 15,
@@ -196,4 +231,25 @@ searchInput: {
     color: "#555",
     marginBottom: 10,
   },
+  video: {
+    width: "100%",
+    height: "100%",
+  },
+  videoWrapper: {
+  position: "relative",
+  width: "100%",
+  aspectRatio:16/9,
+  backgroundColor: "#000",
+},
+
+playPauseBtn: {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: [{ translateX: -20 }, { translateY: -20 }],
+  backgroundColor: "rgba(0,0,0,0.55)",
+  padding: 12,
+  borderRadius: 30,
+},
+
 });
