@@ -2,13 +2,16 @@
 import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Video } from "expo-av";
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import FixedNavigationBar from "../components/Navbar.jsx";
 
 const { width } = Dimensions.get("window");
 
 export default function HomeScreen({ navigation }) {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
   let [fontsLoaded] = useFonts({
     Lato_400Regular,
     Lato_700Bold,
@@ -61,12 +64,43 @@ export default function HomeScreen({ navigation }) {
 
       <View style={styles.devotionSection}>
         {/* Video */}
-        <Video
-          source={{ uri: "https://youtu.be/Sgd23lw8NVY" }}
-          style={styles.video}
-          useNativeControls
-          resizeMode="cover"
-        />
+        <View style={styles.videoWrapper}>
+          <Video
+            ref={videoRef}
+            source={{
+              uri: "https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+            }}
+            style={styles.video}
+            useNativeControls
+            resizeMode="cover"
+            shouldPlay={isPlaying}
+            onPlaybackStatusUpdate={(status) => {
+              if (!status.isLoaded) return;
+              setIsPlaying(status.isPlaying);
+            }}
+          />
+          <TouchableOpacity
+            style={styles.playPause}
+            onPress={async () => {
+              const video = videoRef.current;
+              if (!video) return;
+              const status = await video.getStatusAsync();
+              if (!status.isLoaded) return;
+              if (status.isPlaying) {
+                await video.pauseAsync();
+              } else {
+                await video.playAsync();
+              }
+            }}
+          >
+            <Ionicons
+              name={isPlaying ? "pause" : "play"}
+              size={22}
+              color="#fff"
+            />
+          </TouchableOpacity>
+        </View>
+        
 
         {/* Text Content */}
         <View style={styles.textContent}>

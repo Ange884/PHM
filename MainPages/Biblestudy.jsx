@@ -40,23 +40,6 @@ export default function BibleStudyScreen({navigation}) {
         contentContainerStyle={{ paddingBottom: 90 }}
       >
         {/* HEADER */}
-        <View style={Styles.topBar}>
-        <View style={Styles.SavedContent}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back" size={26} color="#333" />
-          </TouchableOpacity>
-        </View>
-          
-
-          <View style={Styles.languageSelector}>
-    <TouchableOpacity style={Styles.languageButton}>
-      <Ionicons name="language" size={24} color="#4a5568" />
-      <Text style={Styles.languageText}>EN</Text>
-      <Ionicons name="chevron-down" size={16} color="#4a5568" />
-    </TouchableOpacity>
-  </View>
-
-       </View>
         <Text style={Styles.header}>Understanding Sin – Part 1</Text>
         <Text style={Styles.pageTitle}>By Pastor James Muyango</Text>
 
@@ -163,11 +146,12 @@ topBar: {
   },
 
   mainParagraph: {
-    fontSize: 15,
+    fontSize: 14,
     fontFamily: "Lato_400Regular",
     lineHeight: 17,
     marginVertical: 18,
-    color: "#222",
+    color: "#444",
+    letterSpacing:0.2,
   },
 
   languageSelector: {

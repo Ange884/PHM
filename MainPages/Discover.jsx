@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  TextInput,
 } from "react-native";
 import { Video } from "expo-av";
 import { Lato_400Regular, Lato_700Bold } from "@expo-google-fonts/lato";
@@ -26,12 +27,16 @@ export default function DiscoverScreen() {
         <Text style={styles.pageTitle}>Discover</Text>
 
         {/* SEARCH BAR */}
-        <TouchableOpacity style={styles.discoverSearchbar} activeOpacity={0.8}>
-          <Text style={styles.searchbarText}>
-            Search Devotions, Plans, Topics...
-          </Text>
-          <Ionicons name="search" size={20} color="#A0AEC0" />
-        </TouchableOpacity>
+        <View style={styles.discoverSearchbar}>
+  <TextInput
+    style={styles.searchInput}
+    placeholder="Search Devotions, Plans, Topics..."
+    placeholderTextColor="#A0AEC0"
+  />
+  <TouchableOpacity>
+  <Ionicons name="search" size={20} color="#A0AEC0" />
+  </TouchableOpacity>
+</View>
 
         {/* CATEGORIES */}
         <View style={styles.discoverCategories}>
@@ -103,22 +108,26 @@ const styles = StyleSheet.create({
 
   /* SEARCH BAR */
   discoverSearchbar: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    backgroundColor: "#FFFFFF",
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    borderRadius: 14,
-    marginBottom: 25,
-    elevation: 2,
-  },
+  flexDirection: "row",
+  alignItems: "center",
+  backgroundColor: "#fff",
+  borderRadius: 12,
+  paddingHorizontal: 15,
+  paddingVertical: 12,
+  marginBottom: 20,
 
-  searchbarText: {
-    fontSize: 15,
-    fontFamily: "Lato_400Regular",
-    color: "#A0AEC0",
-  },
+  shadowColor: "#000",
+  shadowOpacity: 0.05,
+  shadowRadius: 3,
+  elevation: 2,
+},
+
+searchInput: {
+  flex: 1,
+  fontSize: 16,
+  fontFamily: "Lato_400Regular",
+  color: "#333",
+},
 
   /* SECTIONS */
   sectionTitle: {
