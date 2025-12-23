@@ -1,9 +1,10 @@
 import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import React from "react";
+import React,{useState} from "react";
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-export default function SignUpScreen({ navigation, checked, onPress}) {
+export default function SignUpScreen({ navigation}) {
+  const [checked, setChecked] = useState(false);
   let [fontsLoaded] = useFonts({
     Lato_400Regular,
     Lato_700Bold,
@@ -52,11 +53,15 @@ export default function SignUpScreen({ navigation, checked, onPress}) {
 
           <View style={styles.policyTermsContainer}>
       {/* Checkbox + Label */}
-      <TouchableOpacity style={styles.checkboxContainer} onPress={onPress}>
-        <View style={[styles.checkbox, checked && styles.checkboxChecked]}>
-          {checked && <Text style={styles.checkmark}>✓</Text>}
-        </View>
-      </TouchableOpacity>
+      <TouchableOpacity
+  style={styles.checkboxContainer}
+  onPress={() => setChecked(!checked)}
+>
+  <View style={[styles.checkbox, checked && styles.checkboxChecked]}>
+    {checked && <Text style={styles.checkmark}>✓</Text>}
+  </View>
+</TouchableOpacity>
+
 
       {/* Terms and Privacy text */}
       <Text style={styles.policyTermsText}>

@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  TextInput,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Lato_400Regular, Lato_700Bold, useFonts } from "@expo-google-fonts/lato";
@@ -47,12 +48,16 @@ export default function SavedScreen({ navigation }) {
         </View>
 
         {/* SEARCH BAR */}
-        <TouchableOpacity style={styles.discoverSearchbar} activeOpacity={0.8}>
-          <Text style={styles.searchbarText}>
-            Search Devotions, Plans, Topics...
-          </Text>
-          <Ionicons name="search" size={20} color="#A0AEC0" />
-        </TouchableOpacity>
+        <View style={styles.discoverSearchbar}>
+  <TextInput
+    style={styles.searchInput}
+    placeholder="Search Devotions, Plans, Topics..."
+    placeholderTextColor="#A0AEC0"
+  />
+  <TouchableOpacity>
+  <Ionicons name="search" size={20} color="#A0AEC0" />
+  </TouchableOpacity>
+</View>
 
         {/* SAVED CONTENT LIST */}
         <View style={styles.savedList}>
@@ -107,23 +112,27 @@ const styles = StyleSheet.create({
   },
 
   discoverSearchbar: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    backgroundColor: "#fff",
-    borderRadius: 14,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
-    borderWidth: 1,
-    borderColor: "#e6e2dd",
-    marginBottom: 24,
-  },
+  flexDirection: "row",
+  alignItems: "center",
+  backgroundColor: "#fff",
+  borderRadius: 12,
+  paddingHorizontal: 15,
+  paddingVertical: 12,
+  marginBottom: 20,
 
-  searchbarText: {
-    fontSize: 16,
-    fontFamily: "Lato_400Regular",
-    color: "#A0AEC0",
-  },
+  shadowColor: "#000",
+  shadowOpacity: 0.05,
+  shadowRadius: 3,
+  elevation: 2,
+},
+
+searchInput: {
+  flex: 1,
+  fontSize: 16,
+  fontFamily: "Lato_400Regular",
+  color: "#333",
+},
+
 
   savedList: {
     gap: 16,

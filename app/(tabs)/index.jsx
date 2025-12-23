@@ -1,29 +1,27 @@
 // navigation/AppNavigator.jsx
-import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { NavigationContainer } from "@react-navigation/native";
 
 // Import all your screens
-import WelcomeScreen from "../onboarding/welcome.jsx";
-import OnboardingScreen from "../onboarding/onboarding.jsx";
-import OnboardingScreen2 from "../onboarding/onboarding2.jsx";
-import OnboardingScreen3 from "../onboarding/onboarding3.jsx";
-import SignUpScreen from "../onboarding/Sign-up.jsx";
-import SignInScreen from "../onboarding/sign-in.jsx";
-import HomeScreen from "../MainPages/Home.jsx";
-import DevotionScreen from "../MainPages/Devotion.jsx";
-import DiscoverScreen from "../MainPages/Discover.jsx";
-import BibleStudyScreen from "../MainPages/Biblestudy.jsx";
-import MoreScreen from "../MainPages/More.jsx";
-import SubmitPrayerRequest from "../MainPages/Submit_Request.jsx";
-import FAQsScreen from "../MainPages/FAQs.jsx";
-import ContactUsScreen from "../MainPages/ContactUs.jsx";
-import DailyDevotionScreen from "../MainPages/DailyDevotion.jsx";
-import CommunityForum from "../MainPages/communityForum.jsx";
-import PostDiscussionScreen from "../MainPages/PostDiscussion.jsx";
-import BibleStudies from "../MainPages/BibleStudies.jsx";
-import ForumsScreen from "../MainPages/Forums.jsx";
-import SavedScreen from "../MainPages/Saved.jsx";
+import BibleStudies from "../../MainPages/BibleStudies.jsx";
+import BibleStudyScreen from "../../MainPages/Biblestudy.jsx";
+import CommunityForum from "../../MainPages/communityForum.jsx";
+import ContactUsScreen from "../../MainPages/ContactUs.jsx";
+import DailyDevotionScreen from "../../MainPages/DailyDevotion.jsx";
+import DevotionScreen from "../../MainPages/Devotion.jsx";
+import DiscoverScreen from "../../MainPages/Discover.jsx";
+import FAQsScreen from "../../MainPages/FAQs.jsx";
+import ForumsScreen from "../../MainPages/Forums.jsx";
+import HomeScreen from "../../MainPages/Home.jsx";
+import MoreScreen from "../../MainPages/More.jsx";
+import PostDiscussionScreen from "../../MainPages/PostDiscussion.jsx";
+import SavedScreen from "../../MainPages/Saved.jsx";
+import SubmitPrayerRequest from "../../MainPages/Submit_Request.jsx";
+import OnboardingScreen from "../../onboarding/onboarding.jsx";
+import OnboardingScreen2 from "../../onboarding/onboarding2.jsx";
+import OnboardingScreen3 from "../../onboarding/onboarding3.jsx";
+import SignInScreen from "../../onboarding/sign-in.jsx";
+import SignUpScreen from "../../onboarding/Sign-up.jsx";
+import WelcomeScreen from "../../onboarding/welcome.jsx";
 
 const Stack = createNativeStackNavigator();
 

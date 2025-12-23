@@ -1,14 +1,10 @@
-import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import 'react-native-reanimated';
+import { Stack } from "expo-router";
 
-export default function RootLayout(){
-
+export default function RootLayout() {
   return (
-    <ThemeProvider value={DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-      </Stack>
-    </ThemeProvider>
+    <Stack screenOptions={{ headerShown: false }}>
+      {/* Root stack should render the (tabs) group, not a non-existent index route */}
+      <Stack.Screen name="(tabs)" />
+    </Stack>
   );
 }

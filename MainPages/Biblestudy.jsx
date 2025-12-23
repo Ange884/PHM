@@ -40,6 +40,23 @@ export default function BibleStudyScreen({navigation}) {
         contentContainerStyle={{ paddingBottom: 90 }}
       >
         {/* HEADER */}
+        <View style={Styles.topBar}>
+        <View style={Styles.SavedContent}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Ionicons name="arrow-back" size={26} color="#333" />
+          </TouchableOpacity>
+        </View>
+          
+
+          <View style={Styles.languageSelector}>
+    <TouchableOpacity style={Styles.languageButton}>
+      <Ionicons name="language" size={24} color="#4a5568" />
+      <Text style={Styles.languageText}>EN</Text>
+      <Ionicons name="chevron-down" size={16} color="#4a5568" />
+    </TouchableOpacity>
+  </View>
+
+       </View>
         <Text style={Styles.header}>Understanding Sin – Part 1</Text>
         <Text style={Styles.pageTitle}>By Pastor James Muyango</Text>
 
@@ -121,7 +138,23 @@ const Styles = StyleSheet.create({
     color: "#444",
     marginTop: 1,
   },
-
+topBar: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    flex:1,
+    alignItems: "center",
+    marginRight:10,
+    paddingTop: 50,
+    paddingBottom: 20,
+    backgroundColor: "#F7F7F7",
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 3,
+  },
   header: {
     fontSize: 22,
     fontFamily: "Lato_700Bold",
@@ -137,6 +170,26 @@ const Styles = StyleSheet.create({
     color: "#222",
   },
 
+  languageSelector: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: 300,
+    justifyContent: "flex-end",
+  },
+  languageButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#f1f5f9",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+    gap: 6,
+  },
+  languageText: {
+    fontSize: 14,
+    fontFamily: "Lato_700Bold",
+    color: "#4a5568",
+  },
   questionCard: {
     backgroundColor: "#F6F3EC",
     borderRadius: 16,
